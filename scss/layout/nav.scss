@@ -1,1 +1,80 @@
-// define los estilos de la barra de navegacion 
+// define los estilos de la barra de navegacion
+@use '../abstracts' as *;
+.nav {
+  @include flex-center;
+}
+
+nav {
+    @include flex-center;
+    flex-direction: column;
+    gap: $spacing-sm;
+  
+    .logo {
+      height: 50px;
+    }
+  
+    .List_Categoties,
+    .List_Updates {
+      list-style: none;
+      display: flex;
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+  
+      li {
+        cursor: pointer;
+  
+        a {
+          color: white;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-primary;
+    color: white;
+    padding: $spacing-md $spacing-lg;
+  
+    &__logo {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+  
+      img {
+        width: 40px;
+        height: 40px;
+      }
+  
+      & > .nav__brand {
+        font-size: $font-size-large;
+        font-weight: bold;
+        color: white;
+      }
+    }
+  
+    &__menu {
+      display: flex;
+      list-style: none;
+      gap: $spacing-md;
+  
+      @media (max-width: 768px) {
+        flex-direction: column;
+        background-color: $color-primary;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none; // Para activar en menú hamburguesa luego
+      }
+    
+  
+  }
+}

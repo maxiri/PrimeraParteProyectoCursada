@@ -1,1 +1,8 @@
 // fuentes y tamaños de fuente
+@use '../abstracts' as *;
+
+body {
+  font-family: $font-base;
+  font-size: $font-size-base;
+  line-height: 1.6;
+}

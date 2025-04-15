@@ -1,1 +1,10 @@
 // define los estilos del footer
+@use '../abstracts' as *;
+footer {
+    background-color: $color-dark-1;
+    color: white;
+    text-align: center;
+    padding: $spacing-md;
+  }
+
+  

@@ -1,1 +1,22 @@
 // defile los estilos de los cards
+@use '../abstracts' as *;
+
+.card {
+    background-color: white;
+    border: 1px solid $color-muted-2;
+    border-radius: $border-radius;
+    padding: $spacing-md;
+    margin: $spacing-md;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  
+    &__title {
+      font-size: $font-size-large;
+      color: $color-dark-1;
+    }
+  
+    &__description {
+      font-size: $font-size-small;
+      color: $color-muted-1;
+    }
+  }
+  

@@ -1,1 +1,46 @@
 // modo oscuro 
+@use '../abstracts' as *;
+
+body.dark-mode {
+  background-color: $color-dark-2;
+  color: $color-accent;
+
+  header,
+  footer {
+    background-color: $color-dark-1;
+  }
+
+  nav a {
+    color: $color-accent;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .card {
+    background-color: $color-dark-1;
+    color: $color-accent;
+    border-color: $color-muted-1;
+  }
+
+  input,
+  textarea,
+  select {
+    background-color: $color-dark-1;
+    color: $color-accent;
+    border-color: $color-muted-1;
+  }
+}
+
+  .btn-primary {
+    background-color: $color-primary;
+    color: white;
+  }
+
+  .btn-secondary {
+    background-color: $color-secondary;
+    color: white;
+  }
+
+// .btn-primary:hover,

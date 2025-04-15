@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>space toy store</title>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="js/main.js">
     <link rel="icon" href="assets/images/Logo/Logo-para-pestaña-de-pagina.png" type="image/png">
 </head>
 <body>
+    <header>
+             
     <nav>   
-        <ul>
+        <div>
             <img src="/assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo">
+            <div class="nav__search">
+                <form action="#" method="get" class="nav__form">
+                <input type="text" id="searchInput" class="nav__input" placeholder="Buscar productos..."/>
+                <button type="submit" class="nav__button">🔍</button>
+        </div>
+        <ul class="List_Categoties">
             <li>🛰️ Juguetes Espaciales</li>
             <li>👾 Figuras y Personajes</li>
             <li>🤖 Robótica y Tecnología para Niños</li>
@@ -22,6 +31,31 @@
             <li>🧩 Juegos de mesa y rompecabezas</li>
             <li>🧑‍🚀 Accesorios y merchandising</li>
         </ul>
+        <ul class="List_Updates">
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="Nosotrso.html">Nosotros</a</li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="alta.html">Alta</a></li>
+        </ul>
     </nav>
+    </header>
+    <main>
+        <section id="productList">
+            <div class="card">
+              <h3 class="card__title">Telescopio Espacial</h3>
+              <p class="card__description">Explorá el universo con este telescopio infantil.</p>
+            </div>
+          
+            <div class="card">
+              <h3 class="card__title">Robot Solar</h3>
+              <p class="card__description">Juguete educativo con energía renovable.</p>
+            </div>
+          
+            <!-- Más cards -->
+          </section>
+          
+    </main>
+    <button class="test-scss-button" onclick="toggleDarkMode()">Activar modo oscuro</button>
+    
 </body>
 </html>

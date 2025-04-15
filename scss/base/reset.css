@@ -1,9 +1,7 @@
-//normalizacion de estilos 
-@use '../abstracts' as *;
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+}/*# sourceMappingURL=reset.css.map */

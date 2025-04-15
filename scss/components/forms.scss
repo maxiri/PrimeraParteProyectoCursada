@@ -1,1 +1,18 @@
 // define los estilos de los formularios 
+@use '../abstracts' as *;
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: $spacing-sm;
+  border: 1px solid $color-muted-2;
+  border-radius: $border-radius;
+  font-family: $font-base;
+  margin-bottom: $spacing-sm;
+
+  &:focus {
+    border-color: $color-primary;
+    outline: none;
+  }
+}

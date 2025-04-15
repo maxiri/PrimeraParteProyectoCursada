@@ -1,1 +1,5 @@
-//paleta de colores
+@use '../abstracts/variables' as *;
+
+.some-class {
+  background-color: $color-accent;
+}

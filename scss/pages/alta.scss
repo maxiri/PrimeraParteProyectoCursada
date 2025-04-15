@@ -1,1 +1,7 @@
-// estilos de la àgina de alta de productos 
+// estilos de la àgina de alta de productos
+@use '../abstracts' as *; 
+.alta-form {
+    max-width: 600px;
+    margin: auto;
+  }
+  
