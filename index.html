@@ -7,54 +7,86 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="icon" href="assets/images/Logo/Logo-para-pestaña-de-pagina.png" type="image/png" />
 </head>
-<body>
-    <header>
-        <header>
-            <nav>
-                <div class="nav__left">
-                    <img src="/assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo">
-                </div>
-                <div class="nav__right">
-                    <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
-                    <ul id="menuList">
-                        <li><a href="contacto.html">Contacto</a></li>
-                        <li><a href="Nosotros.html">Nosotros</a></li>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="alta.html">Alta</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        
-        <!-- Sección de Tipos de Juguetes -->
-        <section id="toy-categories">
-            <div class="category-item">🛰️ Juguetes Espaciales</div>
-            <div class="category-item">👾 Figuras y Personajes</div>
-            <div class="category-item">🤖 Robótica y Tecnología para Niños</div>
-            <div class="category-item">🧪 Juguetes Educativos / Científicos</div>
-            <div class="category-item">🎨 Creatividad y Arte Temático</div>
-            <div class="category-item">🛏️ Deco Infantil Cósmico</div>
-            <div class="category-item">📚 Libros y cuentos</div>
-            <div class="category-item">🎮 Juegos Interactivos</div>
-            <div class="category-item">🧩 Juegos de mesa y rompecabezas</div>
-            <div class="category-item">🧑‍🚀 Accesorios y merchandising</div>
-        </section>
-    
-    <main>
-        <!-- Sección de opciones de juguetes -->
-        <section id="productList" class="product-list-section">
-            <div class="card">
-                <h3 class="card__title">Telescopio Espacial</h3>
-                <p class="card__description">Explorá el universo con este telescopio infantil.</p>
-            </div>
-            <div class="card">
-                <h3 class="card__title">Robot Solar</h3>
-                <p class="card__description">Juguete educativo con energía renovable.</p>
-            </div>
-            <!-- Más cards de productos -->
-        </section>
-    </main>
-    
-<script src="js/main.js"></script>
+<body> 
+  <header>
+    <nav>
+      <div class="nav__left">
+        <img src="/assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo">
+      </div>
+      <div class="nav__right">
+        <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+        <ul id="menuList">
+          <!-- Grupo de páginas informativas -->
+          <li>
+            <a href="#">Información</a>
+            <ul>
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="Nosotros.html">Nosotros</a></li>
+            </ul>
+          </li>
+
+          <!-- Grupo de navegación general -->
+          <li>
+            <a href="#">Sitio</a>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="alta.html">Alta</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sección horizontal de categorías de juguetes -->
+  <section id="toy-categories">
+    <div class="category-group">
+      <div class="category-item">🚀 Juguetes Espaciales</div>
+      <div class="subcategories">
+        <div class="category-item">🛏️ Deco Infantil Cósmico</div>
+        <div class="category-item">👾 Figuras y Personajes</div>
+      </div>
+    </div>
+
+    <div class="category-group">
+      <div class="category-item">🤖 Tecnología y Robótica</div>
+      <div class="subcategories">
+        <div class="category-item">🎮 Juegos Interactivos</div>
+        <div class="category-item">🧩 Juegos de mesa y rompecabezas</div>
+      </div>
+    </div>
+
+    <div class="category-group">
+      <div class="category-item">🎨 Creatividad y Educación</div>
+      <div class="subcategories">
+        <div class="category-item">🧪 Juguetes Educativos / Científicos</div>
+        <div class="category-item">📚 Libros y cuentos</div>
+      </div>
+    </div>
+
+    <div class="category-group">
+      <div class="category-item">🧑‍🚀 Otros</div>
+      <div class="subcategories">
+        <div class="category-item">🧑‍🚀 Accesorios y merchandising</div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Sección de opciones de juguetes (ejemplo) -->
+    <section id="productList" class="product-list-section">
+      <div class="card">
+        <h3 class="card__title">Telescopio Espacial</h3>
+        <p class="card__description">Explorá el universo con este telescopio infantil.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Robot Solar</h3>
+        <p class="card__description">Juguete educativo con energía renovable.</p>
+      </div>
+      <!-- Más productos... -->
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

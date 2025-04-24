@@ -18,3 +18,8 @@
 
 @use 'themes/dark-theme' as *;
 @use 'vendors/fonts' as *;
+
+body {
+    overflow-x: hidden;
+
+}

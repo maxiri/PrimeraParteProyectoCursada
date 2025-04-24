@@ -22,7 +22,4 @@ function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
     const btn = document.querySelector(".test-scss-button");
   }
-  function toggleMenu() {
-    const menu = document.getElementById('menuList');
-    menu.classList.toggle('active');
-  }
+  
