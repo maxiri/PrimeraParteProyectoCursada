@@ -4,33 +4,40 @@
   @include flex-center;
 }
 /* ---------------- ZONA 1: Barra Superior (Vertical) ---------------- */
-
 nav {
-  background-color: $color-primary; // #048b7b
-  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #048b7b, #109788);
+  padding: 0.85rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border-bottom: 2px solid #ade7ee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
 .logo {
-  height: 34px;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+  height: 36px;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
 }
 
+// NAV LEFT
+.nav__left {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+// NAV RIGHT
 .nav__right {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
-// LINKS PRINCIPALES
+// LINKS
 ul {
   display: flex;
   list-style: none;
@@ -44,20 +51,39 @@ li {
 
 li a {
   display: block;
-  padding: 0.45rem 0.9rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: white;
+  text-decoration: none;
   border-radius: 8px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   letter-spacing: 0.3px;
+  position: relative;
+}
+
+li a::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  bottom: 4px;
+  width: 80%;
+  height: 2px;
+  background: #ade7ee;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.25s ease;
+  transform-origin: center;
+}
+
+li a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 li a:hover {
-  background-color: rgba(255, 255, 255, 0.08);
   color: #ade7ee;
-  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 // SUBMENÚ
@@ -73,22 +99,20 @@ ul ul {
   min-width: 170px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(5px);
 }
 
 li:hover > ul {
   display: block;
   opacity: 1;
   visibility: visible;
-}
-
-ul ul li {
-  width: 100%;
+  transform: translateY(0);
 }
 
 ul ul a {
   font-size: 0.8rem;
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1.1rem;
   color: #eafefe;
   border-radius: 6px;
 }
@@ -98,22 +122,80 @@ ul ul a:hover {
   color: white;
 }
 
-// BOTÓN
+// BOTÓN MODO OSCURO
 button {
-  background-color: transparent;
-  color: white;
-  border: 1px solid #ade7ee;
+  background-color: #ade7ee;
+  color: #0c2c2c;
+  border: none;
   border-radius: 6px;
-  padding: 0.35rem 1rem;
-  font-size: 0.78rem;
-  font-weight: 500;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
+  background-color: #5c8c94;
+  color: white;
+}
+
+// BUSCADOR
+.search-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 40px;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 2px #ade7ee;
+  transition: all 0.3s ease;
+}
+
+.search-form:focus-within {
+  box-shadow: 0 0 0 2px #5c8c94;
+  border-color: #5c8c94;
+}
+
+.search-form input {
+  border: none;
+  outline: none;
+  padding: 0.55rem 1rem;
+  font-size: 0.92rem;
+  color: #0c2c2c;
+  background: transparent;
+  width: 200px;
+  transition: all 0.2s ease;
+}
+
+.search-form input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-style: italic;
+}
+
+.search-form button {
+  background-color: #048b7b;
+  color: white;
+  border: none;
+  padding: 0 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
   background-color: #109788;
-  color: #fff;
+}
+
+.search-form svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
 }
 
 // CATEGORÍAS
