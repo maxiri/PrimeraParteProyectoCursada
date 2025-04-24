@@ -1,46 +1,35 @@
 // modo oscuro 
 @use '../abstracts' as *;
-
 body.dark-mode {
-  background-color: $color-dark-2;
-  color: $color-accent;
+  background-color: #345c64;
+  color: #ade7ee;
 
-  header,
-  footer {
-    background-color: $color-dark-1;
-  }
+  nav {
+    background-color: #274f51;
 
-  nav a {
-    color: $color-accent;
+    .nav__button {
+      background-color: #5c888c;
 
-    &:hover {
-      color: white;
+      &:hover {
+        background-color: #ade7ee;
+        color: #274f51;
+      }
+    }
+
+    ul li a {
+      color: #ade7ee;
     }
   }
 
   .card {
-    background-color: $color-dark-1;
-    color: $color-accent;
-    border-color: $color-muted-1;
+    background-color: #274f51;
+    color: #ade7ee;
+    border-color: #5c8c94;
   }
 
-  input,
-  textarea,
-  select {
-    background-color: $color-dark-1;
-    color: $color-accent;
-    border-color: $color-muted-1;
+  input, textarea, select {
+    background-color: #274f51;
+    color: #ade7ee;
+    border: 1px solid #5c888c;
   }
 }
-
-  .btn-primary {
-    background-color: $color-primary;
-    color: white;
-  }
-
-  .btn-secondary {
-    background-color: $color-secondary;
-    color: white;
-  }
-
-// .btn-primary:hover,

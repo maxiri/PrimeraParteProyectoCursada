@@ -1,22 +1,4 @@
-function toggleDarkMode() {
-    const body = document.body;
-    const btn = document.querySelector(".test-scss-button");
-  
-    body.classList.toggle("dark-mode");
-  
-    if (body.classList.contains("dark-mode")) {
-      btn.textContent = "Desactivar modo oscuro";
-    } else {
-      btn.textContent = "Activar modo oscuro";
-    }
-  }
-  window.onload = () => {
-    if (localStorage.getItem("dark-mode") === "true") {
-      document.body.classList.add("dark-mode");
-      document.querySelector(".test-scss-button").textContent = "Desactivar modo oscuro";
-    }
-  };
-  
+
   function toggleDarkMode() {
     const body = document.body;
     const btn = document.querySelector(".test-scss-button");
@@ -27,4 +9,20 @@ function toggleDarkMode() {
     localStorage.setItem("dark-mode", isDark);
   
     btn.textContent = isDark ? "Desactivar modo oscuro" : "Activar modo oscuro";
+  }
+document.addEventListener("DOMContentLoaded", () => {
+    const btnDark = document.getElementById("toggle-dark");
+  
+    btnDark.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  });
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    const btn = document.querySelector(".test-scss-button");
+  }
+  function toggleMenu() {
+    const menu = document.getElementById('menuList');
+    menu.classList.toggle('active');
   }
