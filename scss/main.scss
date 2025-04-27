@@ -19,7 +19,30 @@
 @use 'themes/dark-theme' as *;
 @use 'vendors/fonts' as *;
 
+@import 'pages/nosotros'; 
+@import 'pages/carrito';
+
 body {
     overflow-x: hidden;
 
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Permite que el body ocupe todo el espacio disponible */
+  }
+  
+  /* El contenedor principal del contenido (por ejemplo un <main>) */
+  main {
+    flex: 1; /* Hace que el main ocupe todo el espacio disponible */
+  }
+  .product-list-section {
+    display: flex;
+    flex-wrap: wrap; /* Para que bajen cuando no entren */
+    justify-content: center; /* Centra las cards horizontalmente */
+    gap: 20px; /* Espacio entre tarjetas */
+    padding: 20px; /* Un poco de respiro adentro */
+  }
+  

@@ -1,22 +1,89 @@
 // defile los estilos de los cards
 @use '../abstracts' as *;
 
-.card {
-    background-color: white;
-    border: 1px solid $color-muted-2;
-    border-radius: $border-radius;
-    padding: $spacing-md;
-    margin: $spacing-md;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+/* Estilo general de la tarjeta del producto */
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #5c8c94;
+    border-radius: 8px;
+    width: 220px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+  }
   
-    &__title {
-      font-size: $font-size-large;
-      color: $color-dark-1;
-    }
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
   
-    &__description {
-      font-size: $font-size-small;
-      color: $color-muted-1;
-    }
+  /* Imagen del producto */
+  .product-image img {
+    max-width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  
+  /* Información del producto */
+  .product-info {
+    text-align: center;
+    margin-top: 12px;
+  }
+  
+  /* Título del producto */
+  .product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #274f51;
+    margin-bottom: 8px;
+  }
+  
+  /* Descripción corta */
+  .product-description {
+    font-size: 0.9rem;
+    color: #5c8c94;
+    margin-bottom: 12px;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
+  /* Precio del producto */
+  .product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #109788;
+    margin-bottom: 12px;
+  }
+  
+  /* Botón "Añadir al carrito" */
+  .add-to-cart {
+    background-color: #048b7b;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #109788;
+  }
+  .cart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
   

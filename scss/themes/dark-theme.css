@@ -2,35 +2,26 @@ body.dark-mode {
   background-color: #345c64;
   color: #ade7ee;
 }
-body.dark-mode header,
-body.dark-mode footer {
+body.dark-mode nav {
   background-color: #274f51;
 }
-body.dark-mode nav a {
-  color: #ade7ee;
+body.dark-mode nav .nav__button {
+  background-color: #5c888c;
 }
-body.dark-mode nav a:hover {
-  color: white;
+body.dark-mode nav .nav__button:hover {
+  background-color: #ade7ee;
+  color: #274f51;
+}
+body.dark-mode nav ul li a {
+  color: #ade7ee;
 }
 body.dark-mode .card {
   background-color: #274f51;
   color: #ade7ee;
-  border-color: #5c888c;
+  border-color: #5c8c94;
 }
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
+body.dark-mode input, body.dark-mode textarea, body.dark-mode select {
   background-color: #274f51;
   color: #ade7ee;
-  border-color: #5c888c;
-}
-
-.btn-primary {
-  background-color: #048b7b;
-  color: white;
-}
-
-.btn-secondary {
-  background-color: #0c2c2c;
-  color: white;
+  border: 1px solid #5c888c;
 }/*# sourceMappingURL=dark-theme.css.map */

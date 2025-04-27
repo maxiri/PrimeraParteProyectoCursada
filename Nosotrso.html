@@ -4,8 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros</title>
+    <link rel="stylesheet" href="scss/main.css">
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <div class="nav__left">
+              <img id="logo" src="/assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo Juguetería Cósmica" class="alta-nav__logo" />
+              <form class="search-form">
+                <input type="text" placeholder="Buscar juguetes..." />
+                <button type="submit" aria-label="Buscar">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a8 8 0 105.293 14.293l5.707 5.707 1.414-1.414-5.707-5.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+        
+            <div class="nav__right">
+              <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+              <ul id="menuList">
+                <li>
+                  <a href="#">Información</a>
+                  <ul>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="Nosotrso.html">Nosotros</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Sitio</a>
+                  <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="alta.html">Alta</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="about-section">
+        <h1>¿Quiénes somos?</h1>
+        <p>En Juguetería Cósmica, nos apasiona hacer feliz a cada niño y niña con nuestros juguetes. Creemos en la magia de la infancia y en cómo los juguetes pueden formar parte de momentos inolvidables. Nos dedicamos a ofrecer productos de calidad, seguros y divertidos para todas las edades. Somos una tienda de juguetes que se preocupa por cada cliente, con un servicio personalizado y un compromiso constante con la innovación.</p>
+
+        <h2>Nuestros Valores</h2>
+        <ul>
+            <li><strong>Pasión:</strong> Nos entusiasma crear sonrisas a través de nuestros juguetes.</li>
+            <li><strong>Calidad:</strong> Seleccionamos los mejores productos para asegurar la diversión y la seguridad.</li>
+            <li><strong>Compromiso:</strong> Apoyamos a nuestra comunidad y fomentamos un entorno de respeto y cooperación.</li>
+        </ul>
+
+        <h2>El Equipo</h2>
+        <p>Somos un equipo dedicado de personas con experiencia en el mundo del juguete, y estamos aquí para ayudarte a encontrar el regalo perfecto. Nuestro objetivo es hacer de cada visita una experiencia única y satisfactoria.</p>
+
+        <div class="team">
+            <div class="team-member">
+                <img src="/assets/images/team/miembro1.jpg" alt="Miembro 1">
+                <p><strong>Juan Pérez</strong><br> Fundador y CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="/assets/images/team/miembro2.jpg" alt="Miembro 2">
+                <p><strong>Ana Gómez</strong><br> Coordinadora de Ventas</p>
+            </div>
+            <div class="team-member">
+                <img src="/assets/images/team/miembro3.jpg" alt="Miembro 3">
+                <p><strong>Lucas Díaz</strong><br> Jefe de Logística</p>
+            </div>
+        </div>
+    </main>
+        <footer class="site-footer">
+          <div class="footer-content">
+            <div class="footer-links">
+              <ul>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#politicas">Políticas de privacidad</a></li>
+                <li><a href="#nosotros">Sobre nosotros</a></li>
+                <li><a href="#envios">Envíos</a></li>
+              </ul>
+            </div>
+            <div class="footer-logo">
+              <img src="assets/images/Logo/Logo-para-pestaña-de-pagina.png" alt="Juguetería Cósmica">
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
+          </div>
+        </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>

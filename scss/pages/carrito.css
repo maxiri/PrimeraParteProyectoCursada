@@ -1,0 +1,147 @@
+@charset "UTF-8";
+/* Estilo global */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header, footer {
+  background-color: #048b7b;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilo para la página del carrito */
+.carrito {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #048b7b;
+  margin-bottom: 2rem;
+}
+
+.carrito-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background-color: #fafafa;
+  transition: transform 0.3s ease;
+}
+
+.carrito-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-item img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+
+.carrito-info {
+  flex-grow: 1;
+}
+
+.carrito-info h3 {
+  font-size: 1.2rem;
+  color: #048b7b;
+  margin: 0;
+}
+
+.carrito-info p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+button.eliminar {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.eliminar:hover {
+  background-color: #c0392b;
+}
+
+#carrito-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #048b7b;
+  margin-top: 1rem;
+}
+
+#finalizar-compra {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: #109788;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+#finalizar-compra:hover {
+  background-color: #048b7b;
+}
+
+/* Estilo para el contador de productos */
+#cart-count {
+  font-size: 0.5rem;
+  font-weight: bold;
+  background-color: #048b7b;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+
+/* Respuesta móvil */
+@media (max-width: 768px) {
+  .carrito-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .carrito-info h3 {
+    font-size: 1.1rem;
+  }
+  #finalizar-compra {
+    font-size: 1rem;
+  }
+}/*# sourceMappingURL=carrito.css.map */

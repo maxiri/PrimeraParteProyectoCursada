@@ -3,9 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/main.css">
+    <link rel="icon" href="assets/images/Logo/Logo-para-pestaña-de-pagina.png" type="image/png" />
     <title>Alta Productos</title>
 </head>
 <body>
+  <nav class="alta-nav">
+    <div class="alta-nav__container">
+      <img id="logo" src="/assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo Juguetería Cósmica" class="alta-nav__logo" />
+      <h1 class="alta-nav__title">Gestión de Productos</h1>
+    </div>
+  </nav>
+  
+    <section class="alta">
+        <div class="modal" id="modal-acceso">
+            <div class="modal-content">
+              <h2>🔒 Acceso restringido</h2>
+              <p>Por favor, ingresá el código de autorización para continuar:</p>
+              <input type="password" id="input-codigo" placeholder="Código de acceso">
+              <button id="btn-validar-codigo">Ingresar</button>
+            </div>
+          </div>
+          
+ 
+      <section id="product-management">
+        <h2>Gestión de Productos</h2>
+      
+        <!-- Formulario para agregar producto -->
+        <form id="addProductForm">
+          <div class="form-group">
+            <label for="productName">Nombre del Producto</label>
+            <input type="text" id="productName" name="productName" required />
+          </div>
+      
+          <div class="form-group">
+            <label for="productDescription">Descripción</label>
+            <textarea id="productDescription" name="productDescription" required></textarea>
+          </div>
+      
+          <div class="form-group">
+            <label for="productPrice">Precio</label>
+            <input type="number" id="productPrice" name="productPrice" required />
+          </div>
+      
+          <div class="form-group">
+            <label for="productStock">Stock</label>
+            <input type="number" id="productStock" name="productStock" required />
+          </div>
+      
+          <div class="form-group">
+            <label for="productImage">Imagen del Producto</label>
+            <input type="file" id="productImage" name="productImage" accept="image/*" />
+          </div>
+      
+          <button type="submit">Agregar Producto</button>
+        </form>
+      
+        <!-- Formulario para eliminar producto -->
+        <form id="deleteProductForm">
+          <div class="form-group">
+            <label for="productId">ID del Producto</label>
+            <input type="text" id="productId" name="productId" required />
+          </div>
+      
+          <button type="submit">Eliminar Producto</button>
+        </form>
+      
+        <!-- Formulario para actualizar stock -->
+        <form id="updateStockForm">
+          <div class="form-group">
+            <label for="productIdStock">ID del Producto</label>
+            <input type="text" id="productIdStock" name="productIdStock" required />
+          </div>
+      
+          <div class="form-group">
+            <label for="newStock">Nuevo Stock</label>
+            <input type="number" id="newStock" name="newStock" required />
+          </div>
+      
+          <button type="submit">Actualizar Stock</button>
+        </form>
+      </section>
+    </section>
+      <script src="js/main.js"></script>
+      
+      
+        <footer class="footer">
+          <footer class="site-footer">
+            <div class="footer-content">
+              <div class="footer-links">
+                <ul>
+                  <li><a href="#contacto">Contacto</a></li>
+                  <li><a href="#politicas">Políticas de privacidad</a></li>
+                  <li><a href="#nosotros">Sobre nosotros</a></li>
+                  <li><a href="#envios">Envíos</a></li>
+                </ul>
+              </div>
+              <div class="footer-logo">
+                <img src="assets/images/Logo/Logo-para-pestaña-de-pagina.png" alt="Juguetería Cósmica">
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
+            </div>
+          </footer>
+        </footer>
     
 </body>
 </html>
