@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Juguetería Cósmica</title>
   <link rel="stylesheet" href="scss/main.css" />
-  <link rel="icon" href="assets/images/Logo/Logo-para-pestaña-de-pagina.png" type="image/png" />
+  <link rel="icon" href="assets/images/Logo/Logo-Unico-Sin-Letras.png" type="image/png" />
 </head>
 <body>
   <header>
     <nav>
       <div class="nav__left">
-        <img id="logo" src="/assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo" />
-        
+        <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo" />
+
         <div class="search-and-cart">
           <form class="search-form">
             <input type="text" placeholder="Buscar juguetes..." />
@@ -22,20 +22,21 @@
               </svg>
             </button>
           </form>
-  
+
           <div class="cart-icon">
             <div id="cart-count-container">
-            <button onclick="window.location.href = 'carrito.html';", aria-label="Ver carrito">
-              <span class="cart-count" id="cart-count">0</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
-                <path d="M7 4h-2l-3 7v2h2l3.6 7h10.8l3.6-7h2v-2l-3-7h-2l-3 7h-6l-3-7zm3 11h8.6l-2.4 4h-7.6l-2.4-4h3.8z"/>
-              </svg>
+              <!-- ✅ Botón corregido -->
+              <button onclick="window.location.href = 'carrito.html';" aria-label="Ver carrito">
+                <span class="cart-count" id="cart-count">0</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
+                  <path d="M7 4h-2l-3 7v2h2l3.6 7h10.8l3.6-7h2v-2l-3-7h-2l-3 7h-6l-3-7zm3 11h8.6l-2.4 4h-7.6l-2.4-4h3.8z"/>
+                </svg>
+              </button>
             </div>
-            </button>
           </div>
         </div>
       </div>
-  
+
       <div class="nav__right">
         <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
         <ul id="menuList">
@@ -58,8 +59,7 @@
     </nav>
   </header>
 
-    <!-- Sección horizontal de categorías de juguetes -->
-  
+  <!-- Sección de categorías -->
   <section id="toy-categories">
     <div class="category-group">
       <div class="category-item">🚀 Juguetes Espaciales</div>
@@ -91,159 +91,34 @@
         <div class="category-item">🧑‍🚀 Accesorios y merchandising</div>
       </div>
     </div>
-    
   </section>
 
   <main>
-     <!-- Sección de opciones de juguetes (ejemplo) -->
-    <section id="productList" class="product-list-section">
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Osito de peluche</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">carrito de niño</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
+    <!-- ✅ Sección de productos (solo un #productList, limpio) -->
+    <div id="contenedor-productos" class="contenedor-productos">
+      <section id="productList" class="product-list-section"></section>
+    </div>
 
-        </div>
+    <!-- ✅ Template para JS -->
+    <template id="card-template">
+      <div class="producto-item producto-card" data-id="">
+        <h3 class="nombre"></h3>
+        <img class="imagen" style="max-width: 200px; border-radius: 8px;" />
+        <p class="precio"></p>
+        <p class="descripcion"></p>
+        <p class="stock"></p>
+        <button class="add-to-cart">Agregar al carrito</button>
       </div>
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Guantes de boxeo</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Pelota</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Buzz Light Year</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Muñeca</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Puzzle</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Cartas Pokemon</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-        </div>
-      </div> 
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Cocina de Juguete</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="toy-x">
-          <div class="product-image">
-            <img src="ruta-de-imagen.jpg" alt="Nombre del Producto">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Casa de Muñecas</h3>
-            <p class="product-description">Descripción corta del producto.</p>
-            <span class="product-price">$XX.XX</span>
-            <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-        </div>
-      </div>
-      <!-- Más productos... -->
-
-    </section>
-    
-
+    </template>
   </main>
+
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-links">
         <ul>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="Contacto.html">Contacto</a></li>
           <li><a href="#politicas">Políticas de privacidad</a></li>
-          <li><a href="#nosotros">Sobre nosotros</a></li>
+          <li><a href="Nosotrso.html">Sobre nosotros</a></li>
           <li><a href="#envios">Envíos</a></li>
         </ul>
       </div>
@@ -255,10 +130,19 @@
       <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
     </div>
   </footer>
-  
 
-  <script src="js/main.js"></script>
-  
-  
+  <script src="js/main.js" defer></script>
+  <script src="js/carrito.js" defer></script>
+
+  <!-- ✅ Prevención de recarga por búsqueda -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector('.search-form').addEventListener('submit', e => e.preventDefault());
+    });
+  </script>
 </body>
 </html>
+
+<!--  boton para seguir comprando en carrito.hmtl
+  categorias para seccion de alta.hmtl
+  ademas de agregar tamaño, marca  de los juguetes -->

@@ -1,46 +1,67 @@
 const express = require('express');
+const cors = require('cors');
+const fs = require('fs');
 const app = express();
-const multer = require('multer');
-const bodyParser = require('body-parser');
+const PORT = 3000;
 
-app.use(bodyParser.json());
-app.use(multer({ dest: 'uploads/' }).single('productImage'));
+app.use(cors());
+app.use(express.json());
 
-// Simulando una base de datos en memoria
-let productos = [];
+const DATA_FILE = './productos.json';
 
-app.post('/api/agregar-producto', (req, res) => {
-  const { productName, productDescription, productPrice, productStock } = req.body;
-  const newProduct = { 
-    id: Date.now(), 
-    productName, 
-    productDescription, 
-    productPrice, 
-    productStock 
-  };
-  productos.push(newProduct);
-  res.json({ message: 'Producto agregado con éxito' });
+// Leer productos desde archivo o iniciar vacío
+
+if (fs.existsSync(DATA_FILE)) {
+  try {
+    productos = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+  } catch (err) {
+    console.error('Error leyendo productos.json:', err);
+    productos = [];
+  }
+}
+
+// Guardar productos en archivo
+function guardarProductos() {
+  fs.writeFileSync(DATA_FILE, JSON.stringify(productos, null, 2));
+}
+
+// GET: Listar productos
+app.get('/productos', (req, res) => {
+  res.json(productos);
 });
 
-app.delete('/api/eliminar-producto/:id', (req, res) => {
-  const { id } = req.params;
-  productos = productos.filter(product => product.id !== id);
-  res.json({ message: 'Producto eliminado con éxito' });
+// POST: Agregar producto
+app.post('/productos', (req, res) => {
+  const producto = req.body;
+  producto.id = Date.now(); // id único
+  productos.push(producto);
+  guardarProductos();
+  res.status(201).json(producto);
 });
 
-app.put('/api/actualizar-stock/:id', (req, res) => {
-  const { id } = req.params;
-  const { stock } = req.body;
-  const product = productos.find(product => product.id === id);
-  if (product) {
-    product.productStock = stock;
-    res.json({ message: 'Stock actualizado correctamente' });
+// DELETE: Eliminar producto por ID
+app.delete('/productos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  productos = productos.filter(p => p.id !== id);
+  guardarProductos();
+  res.sendStatus(204);
+});
+
+// PUT: Actualizar producto por ID
+app.put('/productos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = productos.findIndex(p => p.id === id);
+
+  if (index !== -1) {
+    productos[index] = { ...productos[index], ...req.body, id };
+    guardarProductos();
+    res.json(productos[index]);
   } else {
-    res.status(404).json({ message: 'Producto no encontrado' });
+    res.status(404).json({ error: 'Producto no encontrado' });
   }
 });
 
-app.listen(3000, () => {
-  console.log('Servidor en puerto 3000');
+// Arrancar servidor
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
-

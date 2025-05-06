@@ -1,304 +1,295 @@
-// --------- Modo Oscuro ---------
+// --------- Mapeo de Categorías y Subcategorías ---------
+const categoriaPrefix = {
+  "Juguetes Espaciales": "ESP",
+  "Deco Infantil Cósmico": "DEC",
+  "Figuras y Personajes": "FIG",
+  "Tecnología y Robótica": "TEC",
+  "Juegos Interactivos": "INT",
+  "Juegos de mesa y rompecabezas": "ROM",
+  "Creatividad y Educación": "CRE",
+  "Juguetes Educativos / Científicos": "EDU",
+  "Libros y cuentos": "LIB",
+  "Otros": "OTR",
+  "Accesorios y merchandising": "ACC"
+};
 
+const contadorIds = {};
+
+function generarIdCategoria(categoria, subcategoria) {
+  const cat = categoriaPrefix[categoria] || "GEN";
+  const sub = categoriaPrefix[subcategoria] || "GEN";
+  const key = `${cat}-${sub}`;
+  contadorIds[key] = (contadorIds[key] || 0) + 1;
+  return `${key}-${String(contadorIds[key]).padStart(3, '0')}`;
+}
+
+// --------- Productos Iniciales ---------
+const productosIniciales = [
+  {
+    nombre: "Osito de peluche",
+    descripcion: "Suave y abrazable para todas las edades.",
+    precio: 15.99,
+    imagen: "https://via.placeholder.com/150?text=Osito",
+    categoria: "Creatividad y Educación",
+    subcategoria: "Libros y cuentos",
+    stock: 10
+  },
+  {
+    nombre: "Carrito de niño",
+    descripcion: "Ideal para los más pequeños.",
+    precio: 25.50,
+    imagen: "https://via.placeholder.com/150?text=Carrito",
+    categoria: "Juguetes Espaciales",
+    subcategoria: "Deco Infantil Cósmico",
+    stock: 5
+  },
+  {
+    nombre: "Guantes de boxeo",
+    descripcion: "Para pequeños campeones.",
+    precio: 30.00,
+    imagen: "https://via.placeholder.com/150?text=Guantes",
+    categoria: "Tecnología y Robótica",
+    subcategoria: "Juegos Interactivos",
+    stock: 8
+  },
+  {
+    nombre: "Pelota",
+    descripcion: "Perfecta para jugar en el parque.",
+    precio: 12.99,
+    imagen: "https://via.placeholder.com/150?text=Pelota",
+    categoria: "Otros",
+    subcategoria: "Accesorios y merchandising",
+    stock: 20
+  },
+  {
+    nombre: "Buzz Light Year",
+    descripcion: "¡Hasta el infinito y más allá!",
+    precio: 45.00,
+    imagen: "https://via.placeholder.com/150?text=Buzz",
+    categoria: "Juguetes Espaciales",
+    subcategoria: "Figuras y Personajes",
+    stock: 7
+  },
+  {
+    nombre: "Muñeca",
+    descripcion: "Compañera de juegos perfecta.",
+    precio: 18.75,
+    imagen: "https://via.placeholder.com/150?text=Muñeca",
+    categoria: "Juguetes Espaciales",
+    subcategoria: "Figuras y Personajes",
+    stock: 9
+  },
+  {
+    nombre: "Puzzle",
+    descripcion: "Desafía tu mente.",
+    precio: 9.50,
+    imagen: "https://via.placeholder.com/150?text=Puzzle",
+    categoria: "Tecnología y Robótica",
+    subcategoria: "Juegos de mesa y rompecabezas",
+    stock: 12
+  },
+  {
+    nombre: "Cartas Pokémon",
+    descripcion: "Colecciona y juega.",
+    precio: 22.00,
+    imagen: "https://via.placeholder.com/150?text=Cartas",
+    categoria: "Tecnología y Robótica",
+    subcategoria: "Juegos de mesa y rompecabezas",
+    stock: 15
+  },
+  {
+    nombre: "Cocina de Juguete",
+    descripcion: "Pequeños chefs en acción.",
+    precio: 55.00,
+    imagen: "https://via.placeholder.com/150?text=Cocina",
+    categoria: "Creatividad y Educación",
+    subcategoria: "Juguetes Educativos / Científicos",
+    stock: 6
+  },
+  {
+    nombre: "Casa de Muñecas",
+    descripcion: "Sueños en miniatura.",
+    precio: 65.99,
+    imagen: "https://via.placeholder.com/150?text=Casa",
+    categoria: "Creatividad y Educación",
+    subcategoria: "Libros y cuentos",
+    stock: 4
+  }
+].map(producto => ({
+  ...producto,
+  id: generarIdCategoria(producto.categoria, producto.subcategoria)
+}));
+
+function inicializarProductosBase() {
+  let productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
+
+  const productosCombinados = [
+    ...productosIniciales,
+    ...productosGuardados.filter(
+      prod => !productosIniciales.some(p => p.id === prod.id)
+    )
+  ];
+
+  localStorage.setItem("productos", JSON.stringify(productosCombinados));
+}
+
+// --------- Modo Oscuro ---------
 function toggleDarkMode() {
   const body = document.body;
   body.classList.toggle("dark-mode");
-
   const isDark = body.classList.contains("dark-mode");
+
+  // También aplicar clase a elementos clave
+  document.querySelector("header")?.classList.toggle("dark-mode", isDark);
+  document.querySelector("nav")?.classList.toggle("dark-mode", isDark);
+  document.querySelector("footer")?.classList.toggle("dark-mode", isDark);
+
   localStorage.setItem("dark-mode", isDark);
 }
 
-// Aplica modo oscuro si ya estaba activado antes
 document.addEventListener("DOMContentLoaded", () => {
   const isDark = JSON.parse(localStorage.getItem("dark-mode"));
   if (isDark) {
     document.body.classList.add("dark-mode");
+    document.querySelector("header")?.classList.add("dark-mode");
+    document.querySelector("nav")?.classList.add("dark-mode");
+    document.querySelector("footer")?.classList.add("dark-mode");
   }
 
-  // Si hay botón para modo oscuro, agregar evento
-  const darkModeButton = document.querySelector(".test-scss-button") || document.getElementById("toggle-dark");
-  if (darkModeButton) {
-    darkModeButton.addEventListener("click", toggleDarkMode);
-  }
+
+
+  const logo = document.getElementById("logo");
+  if (logo) logo.addEventListener("click", () => window.location.href = "index.html");
+
+  inicializarProductosBase();
+  cargarProductosGuardados();
+  actualizarContadorCarrito();
 });
 
+// ---------- Funciones de Producto ----------
+function guardarProducto(producto) {
+  const productos = JSON.parse(localStorage.getItem("productos")) || [];
 
-// --------- Logo clickeable ---------
-
-document.addEventListener('DOMContentLoaded', function () {
-  const logo = document.getElementById('logo');
-  if (logo) {
-    logo.addEventListener('click', () => {
-      window.location.href = 'index.html';
-    });
-  }
-});
-
-
-// --------- Formularios Admin (Alta, Bajas, Stock) ---------
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  // Agregar producto
-  const addProductForm = document.getElementById('addProductForm');
-  if (addProductForm) {
-    addProductForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-
-      fetch('/api/agregar-producto', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert('Producto agregado correctamente');
-        event.target.reset();
-      })
-      .catch(error => {
-        alert('Hubo un error al agregar el producto');
-        console.error(error);
-      });
-    });
+  if (!producto.id) {
+    producto.id = generarIdCategoria(producto.categoria, producto.subcategoria);
   }
 
-  // Eliminar producto
-  const deleteProductForm = document.getElementById('deleteProductForm');
-  if (deleteProductForm) {
-    deleteProductForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const productId = document.getElementById('productId').value;
+  productos.push(producto);
+  localStorage.setItem("productos", JSON.stringify(productos));
+}
 
-      fetch(`/api/eliminar-producto/${productId}`, {
-        method: 'DELETE',
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert('Producto eliminado correctamente');
-        event.target.reset();
-      })
-      .catch(error => {
-        alert('Hubo un error al eliminar el producto');
-        console.error(error);
-      });
-    });
-  }
-
-  // Actualizar stock
-  const updateStockForm = document.getElementById('updateStockForm');
-  if (updateStockForm) {
-    updateStockForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const productId = document.getElementById('productIdStock').value;
-      const newStock = document.getElementById('newStock').value;
-
-      fetch(`/api/actualizar-stock/${productId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ stock: newStock })
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert('Stock actualizado correctamente');
-        event.target.reset();
-      })
-      .catch(error => {
-        alert('Hubo un error al actualizar el stock');
-        console.error(error);
-      });
-    });
-  }
-
-});
-
-
-// --------- Modal de Acceso (si existe) ---------
-
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('modal-acceso');
-  const inputCodigo = document.getElementById('input-codigo');
-  const btnValidar = document.getElementById('btn-validar-codigo');
-
-  if (modal && inputCodigo && btnValidar) {
-    const codigoCorrecto = "cosmica123";
-
-    modal.style.display = "flex"; // Muestra el modal apenas carga
-
-    btnValidar.addEventListener('click', () => {
-      if (inputCodigo.value === codigoCorrecto) {
-        modal.style.display = "none"; // Oculta el modal si el código es correcto
-      } else {
-        alert("🚫 Código incorrecto. Redirigiendo al inicio...");
-        window.location.href = "index.html";
-      }
-    });
-
-    inputCodigo.addEventListener('keyup', function(event) {
-      if (event.key === "Enter") {
-        btnValidar.click(); // Simula hacer clic en el botón
-      }
-    });
-  }
-});
-
-// Función para cargar productos desde LocalStorage y mostrarlos, combinando con productos del HTML
 function cargarProductosGuardados() {
-  // Leer los productos guardados en LocalStorage
-  const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
+  const contenedor = document.getElementById("productList") || document.getElementById("contenedor-productos");
+  if (!contenedor) return;
 
-  // Buscar el contenedor donde vamos a insertar los productos
-  const productList = document.getElementById('productList');
+  contenedor.innerHTML = ""; // limpiar antes de cargar
+  const productos = JSON.parse(localStorage.getItem("productos")) || [];
+  productos.forEach(producto => agregarProductoAlDom(producto));
+}
 
-  // Verificar que el contenedor existe antes de continuar
-  if (!productList) {
-    console.error('Contenedor de productos no encontrado en el DOM');
+function agregarProductoAlDom(producto) {
+  const contenedor = document.getElementById("productList") || document.getElementById("contenedor-productos");
+  if (!contenedor) return;
+
+  const card = document.createElement("div");
+  card.classList.add("producto-item", "product-card");
+
+  card.innerHTML = `
+    <div class="product-image">
+      <img src="${producto.imagen}" alt="${producto.nombre}" />
+    </div>
+    <div class="product-info">
+      <h3 class="product-title">${producto.nombre}</h3>
+      <p class="product-description"><strong>Descripción:</strong> ${producto.descripcion}</p>
+      <p class="product-price"><strong>Precio:</strong> $${producto.precio}</p>
+      <p><strong>Stock:</strong> ${producto.stock}</p>
+      <p><strong>ID:</strong> ${producto.id}</p>
+      <button class="add-to-cart">Añadir al carrito</button>
+    </div>
+  `;
+
+  const addToCartButton = card.querySelector(".add-to-cart");
+  if (addToCartButton) {
+    addToCartButton.addEventListener("click", () => {
+      agregarAlCarrito(producto);
+    });
+  }
+
+  contenedor.appendChild(card);
+}
+
+function eliminarProductoPorId(id) {
+  let productos = JSON.parse(localStorage.getItem("productos")) || [];
+  const index = productos.findIndex(p => p.id === id);
+  if (index === -1) {
+    alert(`❌ No se encontró ningún producto con el ID ${id}.`);
     return;
   }
 
-  // Asegurarnos de que el contenedor esté vacío antes de agregar nuevos productos
-  productList.innerHTML = '';
+  if (!confirm(`¿Seguro que querés eliminar el producto con ID ${id}?`)) {
+    alert("✅ Eliminación cancelada.");
+    return;
+  }
 
-  // Primero, agrega los productos preexistentes en HTML, si los hay
-  const productosPrevios = productList.querySelectorAll('.product-card');
-  productosPrevios.forEach(producto => {
-    productList.appendChild(producto);
-  });
+  productos.splice(index, 1);
+  localStorage.setItem("productos", JSON.stringify(productos));
+  cargarProductosGuardados();
+  alert(`✅ Producto con ID ${id} eliminado.`);
+}
 
-  // Luego, agrega los productos guardados en LocalStorage
-  productosGuardados.forEach(producto => {
-    const card = document.createElement('div');
-    card.className = 'product-card';  // Se mantiene la clase para aplicar los estilos existentes
+function actualizarStockProducto(id, nuevoStock) {
+  let productos = JSON.parse(localStorage.getItem("productos")) || [];
+  const index = productos.findIndex(p => p.id === id);
 
-    // Crear la estructura HTML de la tarjeta sin modificar los estilos actuales
-    card.innerHTML = `
-      <div class="toy-x">
-        <div class="product-image">
-          <img src="${producto.image}" alt="${producto.title}">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">${producto.title}</h3>
-          <p class="product-description">${producto.description}</p>
-          <span class="product-price">$${producto.price.toFixed(2)}</span>
-          <button class="add-to-cart">Añadir al carrito</button>
-        </div>
-      </div>
-    `;
+  if (index === -1) {
+    alert(`❌ No se encontró el producto con ID ${id}.`);
+    return;
+  }
 
-    // Agregar la tarjeta de producto al contenedor
-    productList.appendChild(card);
+  productos[index].stock = nuevoStock;
+  localStorage.setItem("productos", JSON.stringify(productos));
+  cargarProductosGuardados();
+  alert(`✅ Stock actualizado para el producto con ID ${id}.`);
+}
+
+function agregarAlCarrito(producto) {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  const productoExistente = carrito.find(item => item.id === producto.id);
+  if (productoExistente) {
+    productoExistente.cantidad += 1;
+  } else {
+    carrito.push({ ...producto, cantidad: 1 });
+  }
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarContadorCarrito();
+  alert(`🛒 ${producto.nombre} agregado al carrito`);
+}
+
+function actualizarContadorCarrito() {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+  const contador = document.getElementById("cart-count");
+  if (contador) contador.textContent = total;
+}
+
+// ----------- Búsqueda de Productos sin <mark> ----------
+const searchInput = document.querySelector('.search-form input');
+if (searchInput) {
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    filtrarYMostrarProductos(query);
   });
 }
 
-// Asegurarnos de que se carguen los productos cuando la página se haya cargado
-document.addEventListener('DOMContentLoaded', () => {
-  cargarProductosGuardados();
-});
+function filtrarYMostrarProductos(query) {
+  const contenedor = document.getElementById("productList") || document.getElementById("contenedor-productos");
+  contenedor.innerHTML = "";
 
-// Función para agregar un nuevo producto a LocalStorage
-document.getElementById('addProductForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Evita que la página se recargue
+  const productos = JSON.parse(localStorage.getItem("productos")) || [];
 
-  // Obtener los valores del formulario
-  const nombreInput = document.getElementById('productName');
-  const descripcionInput = document.getElementById('productDescription');
-  const precioInput = document.getElementById('productPrice');
-  const imagenInput = document.getElementById('productImage');
-  const stockInput = document.getElementById('productStock'); // Asegúrate de tener este campo en tu formulario
-
-  // Validar que todos los campos estén completos
-  if (!nombreInput.value || !descripcionInput.value || !precioInput.value || !stockInput.value || !imagenInput.value) {
-    alert('Por favor, complete todos los campos.');
-    return; // Detener la ejecución si algún campo está vacío
-  }
-
-  // Verificar que el precio y stock sean números válidos
-  if (isNaN(precioInput.value) || isNaN(stockInput.value) || parseFloat(precioInput.value) <= 0 || parseInt(stockInput.value) <= 0) {
-    alert('El precio y el stock deben ser valores numéricos positivos.');
-    return;
-  }
-
-  // Crear el objeto del producto
-  const nuevoProducto = {
-    id: Date.now(), // Generar un ID único basado en el tiempo
-    title: nombreInput.value,
-    description: descripcionInput.value,
-    price: parseFloat(precioInput.value),
-    stock: parseInt(stockInput.value), // Asegúrate de que este campo se agregue en el objeto
-    image: imagenInput.value || 'default-image.jpg', // Si no se especifica imagen, se usa una imagen predeterminada
-  };
-
-  // Guardar el producto en localStorage
-  let productos = JSON.parse(localStorage.getItem('productos')) || [];
-  productos.push(nuevoProducto);
-  localStorage.setItem('productos', JSON.stringify(productos));
-
-  // Mostrar el mensaje de éxito
-  alert('Producto agregado correctamente');
-
-  // Limpiar el formulario
-  nombreInput.value = '';
-  descripcionInput.value = '';
-  precioInput.value = '';
-  stockInput.value = '';
-  imagenInput.value = '';
-});
-
-// Función para eliminar un producto sin id, usando otro criterio (por ejemplo, nombre)
-function eliminarProductoSinId(nombre) {
-  let productos = JSON.parse(localStorage.getItem('productos')) || [];
-
-  // Filtrar los productos que no tienen el nombre especificado
-  productos = productos.filter(producto => producto.title !== nombre);
-
-  // Guardar los productos actualizados en LocalStorage
-  localStorage.setItem('productos', JSON.stringify(productos));
-
-  // Recargar los productos en la página
-  cargarProductosGuardados();
-}
-
-//Función para cargar productos desde LocalStorage y mostrarlos
-function cargarProductosGuardados() {
-  const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
-  const productList = document.getElementById('productList');
-
-  if (!productList) {
-    console.error('Contenedor de productos no encontrado en el DOM');
-    return;
-  }
-
-  productList.innerHTML = ''; // Limpiar el contenedor antes de agregar productos
-
-  productosGuardados.forEach(producto => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-
-    card.innerHTML = `
-      <div class="toy-x">
-        <div class="product-image">
-          <img src="${producto.image}" alt="${producto.title}">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">${producto.title}</h3>
-          <p class="product-description">${producto.description}</p>
-          <span class="product-price">$${producto.price.toFixed(2)}</span>
-          <button class="add-to-cart">Añadir al carrito</button>
-          <button class="delete-product" data-title="${producto.title}">Eliminar</button>
-        </div>
-      </div>
-    `;
-
-    // Agregar la tarjeta de producto al contenedor
-    productList.appendChild(card);
-
-    // Agregar evento de eliminación
-    const deleteButton = card.querySelector('.delete-product');
-    if (deleteButton) {
-      deleteButton.addEventListener('click', function() {
-        eliminarProductoSinId(producto.title);
-      });
-    }
-  });
+  productos
+    .filter(p => p.nombre.toLowerCase().includes(query))
+    .forEach(producto => agregarProductoAlDom(producto));
 }

@@ -1,13 +1,12 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
-    const logo = document.getElementById('logo');
-    if (logo) {
-      logo.addEventListener('click', () => {
-        window.location.href = 'index.html';
-      });
-    }
-  });  
+  const logo = document.getElementById('logo');
+  if (logo) {
+    logo.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  }
+});
+
 // Carrito de compras
 let cart = JSON.parse(localStorage.getItem('carrito')) || [];
 
@@ -24,10 +23,24 @@ if (addToCartButtons.length > 0) {
       const price = parseFloat(productCard.querySelector('.product-price').textContent.replace('$', ''));
       const image = productCard.querySelector('.product-image img')?.getAttribute('src') || 'assets/images/placeholder.png';
 
-      cart.push({ title, price, image });
+      const product = { title, price, image, cantidad: 1 };
 
+      // Verificar si el producto ya está en el carrito
+      const existingProductIndex = cart.findIndex(p => p.title === product.title);
+      if (existingProductIndex !== -1) {
+        // Si ya existe, aumentar la cantidad
+        cart[existingProductIndex].cantidad += 1;
+      } else {
+        // Si no existe, agregarlo al carrito
+        cart.push(product);
+      }
+
+      // Guardar en localStorage
       localStorage.setItem('carrito', JSON.stringify(cart));
-      cartCount.textContent = cart.length;
+
+      // Actualizar el contador del carrito
+      cartCount.textContent = cart.reduce((total, item) => total + item.cantidad, 0);
+
       console.log(cart);
     });
   });
@@ -48,17 +61,23 @@ function renderizarCarrito() {
     carritoProductos.innerHTML = '<p>Tu carrito está vacío.</p>';
   } else {
     cart.forEach(producto => {
+      if (!producto) return;
+
+      const precio = producto.price ?? producto.precio;
+      if (typeof precio !== 'number') return;
+
       const item = document.createElement('div');
       item.className = 'carrito-item';
       item.innerHTML = `
-        <img src="${producto.image}" alt="${producto.title}" class="carrito-img">
+        <img src="${producto.image || producto.imagen}" alt="${producto.title || producto.nombre}" class="carrito-img">
         <div class="carrito-info">
-          <h3>${producto.title}</h3>
-          <p>Precio: $${producto.price.toFixed(2)}</p>
+          <h3>${producto.title || producto.nombre}</h3>
+          <p>Precio: $${precio.toFixed(2)}</p>
+          <p>Cantidad: ${producto.cantidad}</p>
         </div>
       `;
       carritoProductos.appendChild(item);
-      total += producto.price;
+      total += precio * producto.cantidad;
     });
   }
 
@@ -71,6 +90,8 @@ if (vaciarCarritoBtn) {
     cart = [];
     localStorage.setItem('carrito', JSON.stringify(cart));
     renderizarCarrito();
+    // Actualizar el contador del carrito
+    cartCount.textContent = 0;
   });
 }
 
@@ -81,9 +102,14 @@ if (finalizarCompraBtn) {
     cart = [];
     localStorage.setItem('carrito', JSON.stringify(cart));
     renderizarCarrito();
+    // Actualizar el contador del carrito
+    cartCount.textContent = 0;
   });
 }
 
 // Inicializar
 renderizarCarrito();
+
+// Actualizar contador de productos en el carrito al cargar la página
+cartCount.textContent = cart.reduce((total, item) => total + item.cantidad, 0);
 

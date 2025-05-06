@@ -1,111 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="scss/main.css">
     <link rel="icon" href="assets/images/Logo/Logo-para-pestaña-de-pagina.png" type="image/png" />
-    <title>Alta Productos</title>
-    <body>
-      <nav class="alta-nav">
-        <div class="alta-nav__container">
-          <img id="logo" src="/assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo Juguetería Cósmica" class="alta-nav__logo" />
-          <h1 class="alta-nav__title">Gestión de Productos</h1>
+    <title>Gestión de Productos</title>
+</head>
+<body id="alta">
+
+  <nav class="alta-nav">
+    <div class="alta-nav__container">
+      <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo Juguetería Cósmica" class="alta-nav__logo" />
+      <h1 class="alta-nav__title">Gestión de Productos</h1>
+    </div>
+    <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+  </nav>
+
+  <section class="alta">
+    <!-- Modal de acceso -->
+    <div class="modal" id="modal-acceso">
+      <div class="modal-content">
+        <h2>🔒 Acceso restringido</h2>
+        <p>Por favor, ingresá el código de autorización para continuar:</p>
+        <input type="password" id="input-codigo" placeholder="Código de acceso">
+        <button id="btn-validar-codigo">Ingresar</button>
+      </div>
+    </div>
+
+    <section id="product-management">
+      <h2>Gestión de Productos</h2>
+
+      <!-- Formulario para agregar producto -->
+      <form id="addProductForm">
+        <div class="form-group">
+          <label for="productName">Nombre del Producto</label>
+          <input type="text" id="productName" name="productName" required />
         </div>
-      </nav>
-      
-      <section class="alta">
-        <div class="modal" id="modal-acceso">
+
+        <div class="form-group">
+          <label for="productDescription">Descripción</label>
+          <textarea id="productDescription" name="productDescription" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="productPrice">Precio</label>
+          <input type="number" id="productPrice" name="productPrice" required />
+        </div>
+
+        <div class="form-group">
+          <label for="productStock">Stock</label>
+          <input type="number" id="productStock" name="productStock" required />
+        </div>
+
+        <div class="form-group">
+          <label for="productImage">Imagen del Producto</label>
+          <input type="file" id="productImage" name="productImage" accept="image/*" />
+        </div>
+
+        <div class="form-group">
+          <label for="productCategory">Categoría</label>
+          <select id="productCategory" name="productCategory" required>
+            <option value="">-- Seleccionar categoría --</option>
+            <option value="ESP">🚀 Juguetes Espaciales</option>
+            <option value="TEC">🤖 Tecnología y Robótica</option>
+            <option value="CRE">🎨 Creatividad y Educación</option>
+            <option value="OTR">🧑‍🚀 Otros</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="productSubcategory">Subcategoría</label>
+          <select id="productSubcategory" name="productSubcategory" required>
+            <option value="">-- Seleccionar subcategoría --</option>
+            <option value="DEC">🛏️ Deco Infantil Cósmico</option>
+            <option value="FIG">👾 Figuras y Personajes</option>
+            <option value="INT">🎮 Juegos Interactivos</option>
+            <option value="ROM">🧩 Juegos de mesa y rompecabezas</option>
+            <option value="EDU">🧪 Juguetes Educativos / Científicos</option>
+            <option value="LIB">📚 Libros y cuentos</option>
+            <option value="MER">🧑‍🚀 Accesorios y merchandising</option>
+          </select>
+        </div>
+
+        <button type="submit">Agregar Producto</button>
+        <p id="previewId" style="font-weight: bold; margin-top: 10px;"></p>
+        <div id="previewModal" class="modal" style="display: none;">
           <div class="modal-content">
-            <h2>🔒 Acceso restringido</h2>
-            <p>Por favor, ingresá el código de autorización para continuar:</p>
-            <input type="password" id="input-codigo" placeholder="Código de acceso">
-            <button id="btn-validar-codigo">Ingresar</button>
+            <h3>🧐 ¿Confirmás que los datos son correctos?</h3>
+            <div id="previewContent"></div>
+            <div class="modal-buttons">
+              <button id="confirmAdd">✅ Confirmar</button>
+              <button id="cancelPreview">❌ Cancelar</button>
+            </div>
           </div>
         </div>
-      
-        <section id="product-management">
-          <h2>Gestión de Productos</h2>
-      
-          <!-- Formulario para agregar producto -->
-          <form id="addProductForm">
-            <div class="form-group">
-              <label for="productName">Nombre del Producto</label>
-              <input type="text" id="productName" name="productName" required />
-            </div>
         
-            <div class="form-group">
-              <label for="productDescription">Descripción</label>
-              <textarea id="productDescription" name="productDescription" required></textarea>
-            </div>
-        
-            <div class="form-group">
-              <label for="productPrice">Precio</label>
-              <input type="number" id="productPrice" name="productPrice" required />
-            </div>
-        
-            <div class="form-group">
-              <label for="productStock">Stock</label>
-              <input type="number" id="productStock" name="productStock" required />
-            </div>
-        
-            <div class="form-group">
-              <label for="productImage">Imagen del Producto</label>
-              <input type="file" id="productImage" name="productImage" accept="image/*" />
-            </div>
-        
-            <button type="submit">Agregar Producto</button>
-          </form>
-      
-          <!-- Formulario para eliminar producto -->
-          <form id="deleteProductForm">
-            <div class="form-group">
-              <label for="productId">ID del Producto</label>
-              <input type="text" id="productId" name="productId" required />
-            </div>
-        
-            <button type="submit">Eliminar Producto</button>
-          </form>
-      
-          <!-- Formulario para actualizar stock -->
-          <form id="updateStockForm">
-            <div class="form-group">
-              <label for="productIdStock">ID del Producto</label>
-              <input type="text" id="productIdStock" name="productIdStock" required />
-            </div>
-        
-            <div class="form-group">
-              <label for="newStock">Nuevo Stock</label>
-              <input type="number" id="newStock" name="newStock" required />
-            </div>
-        
-            <button type="submit">Actualizar Stock</button>
-          </form>
-        </section>
-      </section>
-    
-      <script src="js/main.js"></script>
-      
-      <footer class="footer">
-        <footer class="site-footer">
-          <div class="footer-content">
-            <div class="footer-links">
-              <ul>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#politicas">Políticas de privacidad</a></li>
-                <li><a href="#nosotros">Sobre nosotros</a></li>
-                <li><a href="#envios">Envíos</a></li>
-              </ul>
-            </div>
-            <div class="footer-logo">
-              <img src="assets/images/Logo/Logo-para-pestaña-de-pagina.png" alt="Juguetería Cósmica">
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
-          </div>
-        </footer>
-      </footer>
-    </body>
-    
+      </form>
+
+      <!-- Formulario para eliminar producto -->
+      <form id="deleteProductForm">
+        <h2>Eliminar producto</h2>
+        <label for="productId">ID del producto:</label>
+        <input type="text" id="productId" name="productId" required />
+        <button type="submit">Eliminar</button>
+      </form>
+
+      <!-- Formulario para actualizar stock -->
+      <form id="updateStockForm">
+        <div class="form-group">
+          <label for="productIdStock">ID del Producto</label>
+          <input type="text" id="productIdStock" name="productIdStock" required />
+        </div>
+      </form>
+
+      <!-- Formulario para buscar producto por ID -->
+      <div>
+        <h2>Buscar Producto por ID</h2>
+        <input type="text" id="searchId" placeholder="Ingresa el ID del producto" />
+        <button id="searchButton">Buscar</button>
+        <div id="searchResult"></div>
+      </div>
+
+      <!-- Contenedor donde se mostrarán los productos -->
+      <div id="productList">
+        <!-- Los productos se renderizarán aquí dinámicamente -->
+      </div>
+    </section>
+  </section>
+
+  <script src="js/alta.js" defer></script>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <ul>
+          <li><a href="Contacto.html">Contacto</a></li>
+          <li><a href="#politicas">Políticas de privacidad</a></li>
+          <li><a href="Nosotrso.html">Sobre nosotros</a></li>
+          <li><a href="#envios">Envíos</a></li>
+        </ul>
+      </div>
+      <div class="footer-logo">
+        <img src="assets/images/Logo/Logo-para-pestaña-de-pagina.png" alt="Juguetería Cósmica">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
+    </div>
+  </footer>
+</body>
 </html>
