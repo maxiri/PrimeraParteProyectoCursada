@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juguetería Cósmica - Categoría</title>
+  <link rel="stylesheet" href="scss/main.css" />
+  <link rel="icon" href="assets/images/Logo/Logo-Unico-Sin-Letras.png" type="image/png" />
+</head>
+<body>
+  <header>
+    <nav>
+        <div class="nav__left">
+          <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo" />
+  
+          <div class="search-and-cart">
+            <form class="search-form">
+              <input type="text" placeholder="Buscar juguetes..." />
+              <button type="submit" aria-label="Buscar">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 2a8 8 0 105.293 14.293l5.707 5.707 1.414-1.414-5.707-5.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+                </svg>
+              </button>
+            </form>
+  
+            <div class="cart-icon">
+              <div id="cart-count-container">
+                <!-- ✅ Botón corregido -->
+                <button onclick="window.location.href = 'carrito.html';" aria-label="Ver carrito">
+                  <span class="cart-count" id="cart-count">0</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
+                    <path d="M7 4h-2l-3 7v2h2l3.6 7h10.8l3.6-7h2v-2l-3-7h-2l-3 7h-6l-3-7zm3 11h8.6l-2.4 4h-7.6l-2.4-4h3.8z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="nav__right">
+          <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+          <ul id="menuList">
+            <li>
+              <a href="#">Información</a>
+              <ul>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="Nosotrso.html">Nosotros</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Sitio</a>
+              <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="alta.html">Alta</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  <main>
+    <h1 id="category-title"></h1>
+    <section id="productList" class="product-list-section">
+        
+    </section>
+  </main>
+  
+  <template id="card-template">
+    <div class="producto-item producto-card">
+      <h3 class="nombre"></h3>
+      <img class="imagen" style="max-width: 200px; border-radius: 8px;" />
+      <p class="precio"></p>
+      <p class="descripcion"></p>
+      <p class="stock"></p>
+      <button class="add-to-cart">Agregar al carrito</button>
+    </div>
+  </template>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <ul>
+          <li><a href="Contacto.html">Contacto</a></li>
+          <li><a href="#politicas">Políticas de privacidad</a></li>
+          <li><a href="Nosotrso.html">Sobre nosotros</a></li>
+          <li><a href="#envios">Envíos</a></li>
+        </ul>
+      </div>
+      <div class="footer-logo">
+        <img src="assets/images/Logo/Logo-para-pestaña-de-pagina.png" alt="Juguetería Cósmica">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
+    </div>
+  </footer>
+  <script src="js/categoria.js"></script>
+</body>
+</html>

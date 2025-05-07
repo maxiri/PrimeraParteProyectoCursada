@@ -299,4 +299,35 @@ button:hover {
   padding: 2px 6px;
   border-radius: 50%;
   box-shadow: 0 0 0 2px white;
+}
+
+#toy-categories {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  padding: 1rem;
+}
+
+#toy-categories a {
+  display: inline-block;
+  text-decoration: none;
+  color: #444; /* Gris oscuro, no negro puro */
+  padding: 3px 6px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#toy-categories a:hover {
+  background-color: #eaeaea;
+  color: #111;
+}
+
+#toy-categories .category-item {
+  margin: 4px 0;
+}
+
+#toy-categories .subcategories {
+  margin-left: 1rem;
+  border-left: 2px solid #ddd;
+  padding-left: 0.75rem;
+  margin-top: 4px;
 }/*# sourceMappingURL=nav.css.map */

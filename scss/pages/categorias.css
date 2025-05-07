@@ -1,0 +1,131 @@
+@charset "UTF-8";
+/* Contenedor principal */
+.categoria-main {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+/* Título de la categoría */
+.categoria-titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #048b7b;
+}
+
+/* Lista de productos filtrados */
+.filtrados-productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Tarjeta del producto */
+.producto-item {
+  background-color: #ffffff;
+  border: 1px solid #5c8c94;
+  border-radius: 8px;
+  width: 220px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.producto-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen */
+.producto-item .imagen {
+  width: 100%;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Nombre */
+.producto-item .nombre {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #274f51;
+  text-align: center;
+}
+
+/* Descripción */
+.producto-item .descripcion {
+  font-size: 0.9rem;
+  color: #5c8c94;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Precio */
+.producto-item .precio {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #048b7b;
+  margin-bottom: 10px;
+}
+
+/* Stock */
+.producto-item .stock {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* Botón */
+.producto-item .add-to-cart {
+  background-color: #048b7b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.producto-item .add-to-cart:hover {
+  background-color: #035f56;
+}
+
+/* 🔥 Modo oscuro */
+body.dark-mode .categoria-main {
+  background-color: #121212;
+}
+
+body.dark-mode .categoria-titulo {
+  color: #20d1c6;
+}
+
+body.dark-mode .producto-item {
+  background-color: #1e1e1e;
+  border-color: #2e6b70;
+}
+
+body.dark-mode .producto-item .nombre {
+  color: #bfe3e0;
+}
+
+body.dark-mode .producto-item .descripcion {
+  color: #9bbbc0;
+}
+
+body.dark-mode .producto-item .precio {
+  color: #20d1c6;
+}
+
+body.dark-mode .producto-item .stock {
+  color: #aaaaaa;
+}/*# sourceMappingURL=categorias.css.map */
