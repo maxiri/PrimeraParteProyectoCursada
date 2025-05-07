@@ -640,7 +640,7 @@ button:hover {
   display: inline-block;
   text-decoration: none;
   color: #444; /* Gris oscuro, no negro puro */
-  padding: 6px 12px;
+  padding: 3px 6px;
   border-radius: 6px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
