@@ -8,7 +8,6 @@
     <title>Gestión de Productos</title>
 </head>
 <body id="alta">
-
   <nav class="alta-nav">
     <div class="alta-nav__container">
       <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo Juguetería Cósmica" class="alta-nav__logo" />
@@ -21,7 +20,7 @@
     <!-- Modal de acceso -->
     <div class="modal" id="modal-acceso">
       <div class="modal-content">
-        <h2>🔒 Acceso restringido</h2>
+        <h2>🔐 Acceso restringido</h2>
         <p>Por favor, ingresá el código de autorización para continuar:</p>
         <input type="password" id="input-codigo" placeholder="Código de acceso">
         <button id="btn-validar-codigo">Ingresar</button>
@@ -32,30 +31,30 @@
       <h2>Gestión de Productos</h2>
 
       <!-- Formulario para agregar producto -->
-      <form id="addProductForm">
+      <form id="addProductForm" novalidate>
         <div class="form-group">
           <label for="productName">Nombre del Producto</label>
-          <input type="text" id="productName" name="productName" required />
+          <input type="text" id="productName" name="productName" pattern="^[A-Za-z\s]{2,40}$" required />
         </div>
 
         <div class="form-group">
           <label for="productDescription">Descripción</label>
-          <textarea id="productDescription" name="productDescription" required></textarea>
+          <textarea id="productDescription" name="productDescription" minlength="10" maxlength="300" required></textarea>
         </div>
 
         <div class="form-group">
           <label for="productPrice">Precio</label>
-          <input type="number" id="productPrice" name="productPrice" required />
+          <input type="number" id="productPrice" name="productPrice" min="0" step="0.01" required />
         </div>
 
         <div class="form-group">
           <label for="productStock">Stock</label>
-          <input type="number" id="productStock" name="productStock" required />
+          <input type="number" id="productStock" name="productStock" min="0" required />
         </div>
 
         <div class="form-group">
           <label for="productImage">Imagen del Producto</label>
-          <input type="file" id="productImage" name="productImage" accept="image/*" />
+          <input type="file" id="productImage" name="productImage" accept="image/*" required />
         </div>
 
         <div class="form-group">
@@ -68,26 +67,33 @@
             <option value="OTR">🧑‍🚀 Otros</option>
           </select>
         </div>
-
         <div class="form-group">
           <label for="productSubcategory">Subcategoría</label>
           <select id="productSubcategory" name="productSubcategory" required>
             <option value="">-- Seleccionar subcategoría --</option>
-            <option value="DEC">🛏️ Deco Infantil Cósmico</option>
-            <option value="FIG">👾 Figuras y Personajes</option>
-            <option value="INT">🎮 Juegos Interactivos</option>
-            <option value="ROM">🧩 Juegos de mesa y rompecabezas</option>
-            <option value="EDU">🧪 Juguetes Educativos / Científicos</option>
-            <option value="LIB">📚 Libros y cuentos</option>
-            <option value="MER">🧑‍🚀 Accesorios y merchandising</option>
           </select>
+        </div>
+
+        <div class="form-group">
+          <label for="productAgeFrom">Edad desde</label>
+          <input type="number" id="productAgeFrom" name="productAgeFrom" min="0" max="18" required />
+        </div>
+
+        <div class="form-group">
+          <label for="productAgeTo">Edad hasta</label>
+          <input type="number" id="productAgeTo" name="productAgeTo" min="0" max="18" required />
+        </div>
+
+        <div class="shipping-option">
+          <input type="checkbox" id="productFreeShipping" name="productFreeShipping" />
+          <label for="productFreeShipping">🚚 Envío sin cargo</label>
         </div>
 
         <button type="submit">Agregar Producto</button>
         <p id="previewId" style="font-weight: bold; margin-top: 10px;"></p>
         <div id="previewModal" class="modal" style="display: none;">
           <div class="modal-content">
-            <h3>🧐 ¿Confirmás que los datos son correctos?</h3>
+            <h3>🤭 ¿Confirmás que los datos son correctos?</h3>
             <div id="previewContent"></div>
             <div class="modal-buttons">
               <button id="confirmAdd">✅ Confirmar</button>
@@ -95,7 +101,6 @@
             </div>
           </div>
         </div>
-        
       </form>
 
       <!-- Formulario para eliminar producto -->
@@ -122,10 +127,7 @@
         <div id="searchResult"></div>
       </div>
 
-      <!-- Contenedor donde se mostrarán los productos -->
-      <div id="productList">
-        <!-- Los productos se renderizarán aquí dinámicamente -->
-      </div>
+      <div id="productList"></div>
     </section>
   </section>
 
@@ -137,7 +139,7 @@
         <ul>
           <li><a href="Contacto.html">Contacto</a></li>
           <li><a href="#politicas">Políticas de privacidad</a></li>
-          <li><a href="Nosotrso.html">Sobre nosotros</a></li>
+          <li><a href="nosotros.html">Sobre nosotros</a></li>
           <li><a href="#envios">Envíos</a></li>
         </ul>
       </div>

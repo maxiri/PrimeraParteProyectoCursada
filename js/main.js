@@ -32,7 +32,7 @@ const productosIniciales = [
     nombre: "Cortina Galáctica",
     descripcion: "Cortina decorativa con planetas y estrellas para habitaciones infantiles.",
     precio: 29.99,
-    imagen: "https://via.placeholder.com/150?text=Cortina+Galáctica",
+    imagen: "assets/images/Img-Productos/f82d293f-4c99-408b-8b94-431220e0dde0.webp",
     categoria: "Juguetes Espaciales",
     subcategoria: "Deco Infantil Cósmico",
     stock: 8
@@ -42,7 +42,7 @@ const productosIniciales = [
     nombre: "Astronauta articulado",
     descripcion: "Figura articulada con casco removible y mochila espacial.",
     precio: 21.99,
-    imagen: "https://via.placeholder.com/150?text=Astronauta+articulado",
+    imagen: "assets/images/Img-Productos/D_NQ_NP_770983-MLA76187517415_052024-O.webp",
     categoria: "Juguetes Espaciales",
     subcategoria: "Figuras y Personajes",
     stock: 10
@@ -52,47 +52,27 @@ const productosIniciales = [
     nombre: "Lápiz Digital Parlante",
     descripcion: "Interfaz educativa parlante que enseña letras y números.",
     precio: 19.50,
-    imagen: "https://via.placeholder.com/150?text=Lápiz+Digital",
+    imagen: "assets/images/Img-Productos/D_NQ_NP_942244-MLU78616055332_082024-O.webp",
     categoria: "Tecnología y Robótica",
     subcategoria: "Juegos Interactivos",
     stock: 9
-  },
-  {
-    id: generarIdCategoria("Tecnología y Robótica", "Juegos de mesa y rompecabezas"),
-    nombre: "Tablero Espacial",
-    descripcion: "Juego de estrategia en tablero con temática de planetas.",
-    precio: 27.30,
-    imagen: "https://via.placeholder.com/150?text=Tablero+Espacial",
-    categoria: "Tecnología y Robótica",
-    subcategoria: "Juegos de mesa y rompecabezas",
-    stock: 7
   },
   {
     id: generarIdCategoria("Creatividad y Educación", "Juguetes Educativos / Científicos"),
     nombre: "Set de Imantación",
     descripcion: "Juego para experimentar con magnetismo y repulsión.",
     precio: 16.45,
-    imagen: "https://via.placeholder.com/150?text=Set+Imantación",
+    imagen: "assets/images/Img-Productos/D_NQ_NP_942244-MLU78616055332_082024-O.webp",
     categoria: "Creatividad y Educación",
     subcategoria: "Juguetes Educativos / Científicos",
     stock: 11
-  },
-  {
-    id: generarIdCategoria("Creatividad y Educación", "Libros y cuentos"),
-    nombre: "Viaje al Planeta Azul",
-    descripcion: "Cuento ilustrado que narra la travesía de una niña por el espacio.",
-    precio: 14.99,
-    imagen: "https://via.placeholder.com/150?text=Viaje+Planeta+Azul",
-    categoria: "Creatividad y Educación",
-    subcategoria: "Libros y cuentos",
-    stock: 6
   },
   {
     id: generarIdCategoria("Otros", "Accesorios y merchandising"),
     nombre: "Llaveros Espaciales",
     descripcion: "Set de 3 llaveros con diseños de cohetes, planetas y astronautas.",
     precio: 9.99,
-    imagen: "https://via.placeholder.com/150?text=Llaveros+Espaciales",
+    imagen: "assets/images/Img-Productos/D_NQ_NP_620857-MLU74180599485_012024-O.webp",
     categoria: "Otros",
     subcategoria: "Accesorios y merchandising",
     stock: 20
@@ -102,7 +82,7 @@ const productosIniciales = [
     nombre: "Osito de peluche",
     descripcion: "Suave y abrazable para todas las edades.",
     precio: 15.99,
-    imagen: "https://via.placeholder.com/150?text=Osito",
+    imagen: "assets/images/Img-Productos/oso-de-peluche-oso-de-peluche.jpg",
     categoria: "Creatividad y Educación",
     subcategoria: "Libros y cuentos",
     stock: 10
@@ -112,7 +92,7 @@ const productosIniciales = [
     nombre: "Carrito de niño",
     descripcion: "Ideal para los más pequeños.",
     precio: 25.5,
-    imagen: "https://via.placeholder.com/150?text=Carrito",
+    imagen: "assets/images/Img-Productos/81A25kwzSaL.jpg",
     categoria: "Juguetes Espaciales",
     subcategoria: "Deco Infantil Cósmico",
     stock: 5
@@ -122,7 +102,7 @@ const productosIniciales = [
     nombre: "Guantes de boxeo",
     descripcion: "Para pequeños campeones.",
     precio: 30.0,
-    imagen: "https://via.placeholder.com/150?text=Guantes",
+    imagen: "assets/images/Img-Productos/images.jpeg",
     categoria: "Tecnología y Robótica",
     subcategoria: "Juegos Interactivos",
     stock: 8
@@ -132,7 +112,7 @@ const productosIniciales = [
     nombre: "Pelota",
     descripcion: "Perfecta para jugar en el parque.",
     precio: 12.99,
-    imagen: "https://via.placeholder.com/150?text=Pelota",
+    imagen: "assets/images/Img-Productos/balon-cumbre-conmebol-libertadores-unisex-blanco.jpg",
     categoria: "Otros",
     subcategoria: "Accesorios y merchandising",
     stock: 20
@@ -142,7 +122,7 @@ const productosIniciales = [
     nombre: "Buzz Light Year",
     descripcion: "¡Hasta el infinito y más allá!",
     precio: 45.0,
-    imagen: "https://via.placeholder.com/150?text=Buzz",
+    imagen: "assets/images/Img-Productos/91rUF2n1kBL._AC_SL1500_.jpg",
     categoria: "Juguetes Espaciales",
     subcategoria: "Figuras y Personajes",
     stock: 7
@@ -152,27 +132,17 @@ const productosIniciales = [
     nombre: "Muñeca",
     descripcion: "Compañera de juegos perfecta.",
     precio: 18.75,
-    imagen: "https://via.placeholder.com/150?text=Muñeca",
+    imagen: "assets/images/Img-Productos/images (1).jpeg",
     categoria: "Juguetes Espaciales",
     subcategoria: "Figuras y Personajes",
     stock: 9
-  },
-  {
-    id: "TEC-ROM-001",
-    nombre: "Puzzle",
-    descripcion: "Desafía tu mente.",
-    precio: 9.5,
-    imagen: "https://via.placeholder.com/150?text=Puzzle",
-    categoria: "Tecnología y Robótica",
-    subcategoria: "Juegos de mesa y rompecabezas",
-    stock: 12
   },
   {
     id: "TEC-ROM-002",
     nombre: "Cartas Pokémon",
     descripcion: "Colecciona y juega.",
     precio: 22.0,
-    imagen: "https://via.placeholder.com/150?text=Cartas",
+    imagen: "assets/images/Img-Productos/D_NQ_NP_782068-MLU51839721316_102022-O.webp",
     categoria: "Tecnología y Robótica",
     subcategoria: "Juegos de mesa y rompecabezas",
     stock: 15
@@ -182,27 +152,17 @@ const productosIniciales = [
     nombre: "Cocina de Juguete",
     descripcion: "Pequeños chefs en acción.",
     precio: 55.0,
-    imagen: "https://via.placeholder.com/150?text=Cocina",
+    imagen: "assets/images/Img-Productos/cocina-infantil-de-juguete-set-en-valija-con-31-accesorios-cocina-infantil-de-juguete-set-en-valija-con-31-accesorios.jpg",
     categoria: "Creatividad y Educación",
     subcategoria: "Juguetes Educativos / Científicos",
     stock: 6
-  },
-  {
-    id: "CRE-LIB-002",
-    nombre: "Casa de Muñecas",
-    descripcion: "Sueños en miniatura.",
-    precio: 65.99,
-    imagen: "https://via.placeholder.com/150?text=Casa",
-    categoria: "Creatividad y Educación",
-    subcategoria: "Libros y cuentos",
-    stock: 4
   },
   {
     id: "ESP-DEC-002",
     nombre: "Lámpara de estrella",
     descripcion: "Producto de la línea deco infantil cósmico",
     precio: 36.81,
-    imagen: "https://via.placeholder.com/150?text=Lámpara+de+estrella",
+    imagen: "assets/images/Img-Productos/images (2).jpeg",
     categoria: "Juguetes Espaciales",
     subcategoria: "Deco Infantil Cósmico",
     stock: 19
@@ -212,27 +172,17 @@ const productosIniciales = [
     nombre: "Vinilo planetario",
     descripcion: "Producto de la línea deco infantil cósmico",
     precio: 44.92,
-    imagen: "https://via.placeholder.com/150?text=Vinilo+planetario",
+    imagen: "assets/images/Img-Productos/vinilo-infantil-sistema-solar-1424.webp",
     categoria: "Juguetes Espaciales",
     subcategoria: "Deco Infantil Cósmico",
     stock: 5
-  },
-  {
-    id: "ESP-FIG-003",
-    nombre: "Figura alienígena",
-    descripcion: "Producto de la línea figuras y personajes",
-    precio: 30.97,
-    imagen: "https://via.placeholder.com/150?text=Figura+alienígena",
-    categoria: "Juguetes Espaciales",
-    subcategoria: "Figuras y Personajes",
-    stock: 12
   },
   {
     id: "TEC-INT-002",
     nombre: "Tablet educativa",
     descripcion: "Producto de la línea juegos interactivos",
     precio: 48.1,
-    imagen: "https://via.placeholder.com/150?text=Tablet+educativa",
+    imagen: "assets/images/Img-Productos/67307039-tablero-de-instrumentos-viejo-soviética-vostok-de-la-nave-espacial.jpg",
     categoria: "Tecnología y Robótica",
     subcategoria: "Juegos Interactivos",
     stock: 17
@@ -242,7 +192,7 @@ const productosIniciales = [
     nombre: "Robot programable",
     descripcion: "Producto de la línea juegos interactivos",
     precio: 58.66,
-    imagen: "https://via.placeholder.com/150?text=Robot+programable",
+    imagen: "assets/images/Img-Productos/Robot Interactivo Parlante.webp",
     categoria: "Tecnología y Robótica",
     subcategoria: "Juegos Interactivos",
     stock: 4
@@ -252,7 +202,7 @@ const productosIniciales = [
     nombre: "Rompecabezas solar",
     descripcion: "Producto de la línea juegos de mesa y rompecabezas",
     precio: 44.33,
-    imagen: "https://via.placeholder.com/150?text=Rompecabezas+solar",
+    imagen: "assets/images/Img-Productos/Rompecabezas solar.jpeg",
     categoria: "Tecnología y Robótica",
     subcategoria: "Juegos de mesa y rompecabezas",
     stock: 6
@@ -262,7 +212,7 @@ const productosIniciales = [
     nombre: "Kit de ciencia",
     descripcion: "Producto de la línea juguetes educativos / científicos",
     precio: 15.65,
-    imagen: "https://via.placeholder.com/150?text=Kit+de+ciencia",
+    imagen: "assets/images/Img-Productos/Kit de ciencia.webp",
     categoria: "Creatividad y Educación",
     subcategoria: "Juguetes Educativos / Científicos",
     stock: 16
@@ -272,7 +222,7 @@ const productosIniciales = [
     nombre: "Microscopio junior",
     descripcion: "Producto de la línea juguetes educativos / científicos",
     precio: 23.66,
-    imagen: "https://via.placeholder.com/150?text=Microscopio+junior",
+    imagen: "assets/images/Img-Productos/Microscopio junior.jpeg",
     categoria: "Creatividad y Educación",
     subcategoria: "Juguetes Educativos / Científicos",
     stock: 11
@@ -282,7 +232,7 @@ const productosIniciales = [
     nombre: "Cuento de astronautas",
     descripcion: "Producto de la línea libros y cuentos",
     precio: 19.36,
-    imagen: "https://via.placeholder.com/150?text=Cuento+de+astronautas",
+    imagen: "assets/images/Img-Productos/Cuento de astronautas.jpg",
     categoria: "Creatividad y Educación",
     subcategoria: "Libros y cuentos",
     stock: 7
@@ -292,7 +242,7 @@ const productosIniciales = [
     nombre: "Mochila espacial",
     descripcion: "Producto de la línea accesorios y merchandising",
     precio: 12.91,
-    imagen: "https://via.placeholder.com/150?text=Mochila+espacial",
+    imagen: "assets/images/Img-Productos/Mochila espacial.webp",
     categoria: "Otros",
     subcategoria: "Accesorios y merchandising",
     stock: 6
@@ -302,7 +252,7 @@ const productosIniciales = [
     nombre: "Gorra cósmica",
     descripcion: "Producto de la línea accesorios y merchandising",
     precio: 30.17,
-    imagen: "https://via.placeholder.com/150?text=Gorra+cósmica",
+    imagen: "assets/images/Img-Productos/Gorra cósmica.jpg",
     categoria: "Otros",
     subcategoria: "Accesorios y merchandising",
     stock: 13
@@ -311,7 +261,7 @@ const productosIniciales = [
     nombre: "Almohada Astronauta",
     descripcion: "Almohada con forma de astronauta para decoración infantil.",
     precio: 15.99,
-    imagen: "https://via.placeholder.com/150?text=Almohada+Astronauta",
+    imagen: "assets/images/Img-Productos/Almohada Astronauta.jpg",
     categoria: "Juguetes Espaciales",
     subcategoria: "Deco Infantil Cósmico",
     stock: 10
@@ -322,7 +272,7 @@ const productosIniciales = [
     nombre: "Figura Alienígena",
     descripcion: "Figura de vinilo de un alienígena amistoso.",
     precio: 12.50,
-    imagen: "https://via.placeholder.com/150?text=Figura+Alien",
+    imagen: "assets/images/Img-Productos/Figura-alienigena.webp",
     categoria: "Juguetes Espaciales",
     subcategoria: "Figuras y Personajes",
     stock: 8
@@ -333,7 +283,7 @@ const productosIniciales = [
     nombre: "Robot Explorador",
     descripcion: "Robot programable para niños.",
     precio: 49.90,
-    imagen: "https://via.placeholder.com/150?text=Robot+Explorador",
+    imagen: "assets/images/Img-Productos/Robot Explorador.webp",
     categoria: "Tecnología y Robótica",
     subcategoria: "Juegos Interactivos",
     stock: 5
@@ -344,7 +294,7 @@ const productosIniciales = [
     nombre: "Rompecabezas Espacial",
     descripcion: "Rompecabezas de 500 piezas con temática del sistema solar.",
     precio: 20.00,
-    imagen: "https://via.placeholder.com/150?text=Rompecabezas+Espacial",
+    imagen: "assets/images/Img-Productos/P504424-1.webp",
     categoria: "Tecnología y Robótica",
     subcategoria: "Juegos de mesa y rompecabezas",
     stock: 12
@@ -355,7 +305,7 @@ const productosIniciales = [
     nombre: "Kit de Ciencia",
     descripcion: "Incluye tubos de ensayo, microscopio y más.",
     precio: 35.00,
-    imagen: "https://via.placeholder.com/150?text=Kit+Científico",
+    imagen: "assets/images/Img-Productos/D_NQ_NP_809324-MLU47382095355_092021-O.webp",
     categoria: "Creatividad y Educación",
     subcategoria: "Juguetes Educativos / Científicos",
     stock: 7
@@ -366,28 +316,19 @@ const productosIniciales = [
     nombre: "Cuentos Cósmicos",
     descripcion: "Historias para dormir con temática espacial.",
     precio: 18.00,
-    imagen: "https://via.placeholder.com/150?text=Cuentos+Cósmicos",
+    imagen: "assets/images/Img-Productos/Cuento de astronautas.jpg",
     categoria: "Creatividad y Educación",
     subcategoria: "Libros y cuentos",
     stock: 20
   },
   // OTR - Accesorios
-  {
-    id: "OTR-ACC-001",
-    nombre: "Gorra Cósmica",
-    descripcion: "Producto de la línea accesorios y merchandising",
-    precio: 30.17,
-    imagen: "https://via.placeholder.com/150?text=Gorra+cósmica",
-    categoria: "Otros",
-    subcategoria: "Accesorios y merchandising",
-    stock: 13
-  }, {
+ {
     id: "TEC-JUE-001",
     nombre: "Consola Retro Mini",
     descripcion: "Consola portátil con 400 juegos clásicos incluidos.",
     precio: 7999,
     stock: 15,
-    imagen: "https://via.placeholder.com/200x200.png?text=Retro+Mini"
+    imagen: "assets/images/Img-Productos/Consola Retro Mini.webp"
   },
   {
     id: "TEC-JUE-002",
@@ -395,7 +336,7 @@ const productosIniciales = [
     descripcion: "Robot con sensores y voz que responde a comandos.",
     precio: 12500,
     stock: 8,
-    imagen: "https://via.placeholder.com/200x200.png?text=Robot"
+    imagen: "assets/images/Img-Productos/Robot Interactivo Parlante.webp"
   },
   {
     id: "CRE-CIE-001",
@@ -403,7 +344,7 @@ const productosIniciales = [
     descripcion: "Simula erupciones con este divertido set de química.",
     precio: 4990,
     stock: 20,
-    imagen: "https://via.placeholder.com/200x200.png?text=Volcan"
+    imagen: "assets/images/Img-Productos/images (3volc).jpeg"
   },
   {
     id: "CRE-CIE-002",
@@ -411,7 +352,7 @@ const productosIniciales = [
     descripcion: "Ideal para que los peques exploren el mundo microscópico.",
     precio: 8900,
     stock: 10,
-    imagen: "https://via.placeholder.com/200x200.png?text=Microscopio"
+    imagen: "assets/images/Img-Productos/Microscopio junior.jpeg"
   }
 ].map(producto => ({
   ...producto,

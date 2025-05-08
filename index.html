@@ -25,7 +25,6 @@
 
           <div class="cart-icon">
             <div id="cart-count-container">
-              <!-- ✅ Botón corregido -->
               <button onclick="window.location.href = 'carrito.html';" aria-label="Ver carrito">
                 <span class="cart-count" id="cart-count">0</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
@@ -60,70 +59,66 @@
   </header>
 
   <!-- Sección de categorías -->
-  <!-- Sección de categorías con enlaces -->
-<section id="toy-categories">
-  <div class="category-group">
-    <div class="category-item">
-      <a href="categoria.html?categoria=ESP">🚀 Juguetes Espaciales</a>
-    </div>
-    <div class="subcategories">
+  <section id="toy-categories">
+    <div class="category-group">
       <div class="category-item">
-        <a href="categoria.html?categoria=ESP-DEC">🛏️ Deco Infantil Cósmico</a>
+        <a href="categoria.html?categoria=ESP">🚀 Juguetes Espaciales</a>
       </div>
-      <div class="category-item">
-        <a href="categoria.html?categoria=ESP-FIG">👾 Figuras y Personajes</a>
+      <div class="subcategories">
+        <div class="category-item">
+          <a href="categoria.html?categoria=ESP-DEC">🛏️ Deco Infantil Cósmico</a>
+        </div>
+        <div class="category-item">
+          <a href="categoria.html?categoria=ESP-FIG">👾 Figuras y Personajes</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="category-group">
-    <div class="category-item">
-      <a href="categoria.html?categoria=TEC">🤖 Tecnología y Robótica</a>
-    </div>
-    <div class="subcategories">
+    <div class="category-group">
       <div class="category-item">
-        <a href="categoria.html?categoria=TEC-JUE">🎮 Juegos Interactivos</a>
+        <a href="categoria.html?categoria=TEC">🤖 Tecnología y Robótica</a>
       </div>
-      <div class="category-item">
-        <a href="categoria.html?categoria=TEC-ROM">🧩 Juegos de mesa y rompecabezas</a>
+      <div class="subcategories">
+        <div class="category-item">
+          <a href="categoria.html?categoria=TEC-INT">🎮 Juegos Interactivos</a>
+        </div>
+        <div class="category-item">
+          <a href="categoria.html?categoria=TEC-ROM">🧩 Juegos de mesa y rompecabezas</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="category-group">
-    <div class="category-item">
-      <a href="categoria.html?categoria=CRE">🎨 Creatividad y Educación</a>
-    </div>
-    <div class="subcategories">
+    <div class="category-group">
       <div class="category-item">
-        <a href="categoria.html?categoria=CRE-CIE">🧪 Juguetes Educativos / Científicos</a>
+        <a href="categoria.html?categoria=CRE">🎨 Creatividad y Educación</a>
       </div>
-      <div class="category-item">
-        <a href="categoria.html?categoria=CRE-LIB">📚 Libros y cuentos</a>
+      <div class="subcategories">
+        <div class="category-item">
+          <a href="categoria.html?categoria=CRE-EDU">🧪 Juguetes Educativos / Científicos</a>
+        </div>
+        <div class="category-item">
+          <a href="categoria.html?categoria=CRE-LIB">📚 Libros y cuentos</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="category-group">
-    <div class="category-item">
-      <a href="categoria.html?categoria=OTR">🧑‍🚀 Otros</a>
-    </div>
-    <div class="subcategories">
+    <div class="category-group">
       <div class="category-item">
-        <a href="categoria.html?categoria=OTR-ACC">🧑‍🚀 Accesorios y merchandising</a>
+        <a href="categoria.html?categoria=OTR">🧑‍🚀 Otros</a>
+      </div>
+      <div class="subcategories">
+        <div class="category-item">
+          <a href="categoria.html?categoria=OTR-ACC">🧑‍🚀 Accesorios y merchandising</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <main>
-    <!-- ✅ Sección de productos (solo un #productList, limpio) -->
     <div id="contenedor-productos" class="contenedor-productos">
       <section id="productList" class="product-list-section"></section>
     </div>
 
-    <!-- ✅ Template para JS -->
     <template id="card-template">
       <div class="producto-item producto-card" data-id="">
         <h3 class="nombre"></h3>
@@ -157,8 +152,6 @@
 
   <script src="js/main.js" defer></script>
   <script src="js/carrito.js" defer></script>
-
-  <!-- ✅ Prevención de recarga por búsqueda -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.search-form').addEventListener('submit', e => e.preventDefault());
@@ -166,6 +159,7 @@
   </script>
 </body>
 </html>
+
 
 <!--  boton para seguir comprando en carrito.hmtl
   categorias para seccion de alta.hmtl
