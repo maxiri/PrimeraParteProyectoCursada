@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <nav>
+    <nav class="navbar">
       <div class="nav__left">
         <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo" />
 
@@ -36,8 +36,12 @@
         </div>
       </div>
 
-      <div class="nav__right">
-        <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+      <!-- Hamburguesa solo para móvil -->
+      <button class="hamburger" aria-label="Menú" onclick="toggleMenu()">☰</button>
+
+      <!-- Menú derecho -->
+      <div class="nav__right" id="navRight">
+        <button onclick="toggleDarkMode()" class="btn-darkmode">🌙 Modo Oscuro</button>
         <ul id="menuList">
           <li>
             <a href="#">Información</a>
@@ -60,59 +64,60 @@
 
   <!-- Sección de categorías -->
   <section id="toy-categories">
-    <div class="category-group">
-      <div class="category-item">
-        <a href="categoria.html?categoria=ESP">🚀 Juguetes Espaciales</a>
-      </div>
-      <div class="subcategories">
+      <div class="category-group">
         <div class="category-item">
-          <a href="categoria.html?categoria=ESP-DEC">🛏️ Deco Infantil Cósmico</a>
+          <a href="categoria.html?categoria=ESP">🚀 Juguetes Espaciales</a>
         </div>
-        <div class="category-item">
-          <a href="categoria.html?categoria=ESP-FIG">👾 Figuras y Personajes</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="category-group">
-      <div class="category-item">
-        <a href="categoria.html?categoria=TEC">🤖 Tecnología y Robótica</a>
-      </div>
-      <div class="subcategories">
-        <div class="category-item">
-          <a href="categoria.html?categoria=TEC-INT">🎮 Juegos Interactivos</a>
-        </div>
-        <div class="category-item">
-          <a href="categoria.html?categoria=TEC-ROM">🧩 Juegos de mesa y rompecabezas</a>
+        <div class="subcategories">
+          <div class="category-item">
+            <a href="categoria.html?categoria=ESP-DEC">🛏️ Deco Infantil Cósmico</a>
+          </div>
+          <div class="category-item">
+            <a href="categoria.html?categoria=ESP-FIG">👾 Figuras y Personajes</a>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="category-group">
-      <div class="category-item">
-        <a href="categoria.html?categoria=CRE">🎨 Creatividad y Educación</a>
-      </div>
-      <div class="subcategories">
+  
+      <div class="category-group">
         <div class="category-item">
-          <a href="categoria.html?categoria=CRE-EDU">🧪 Juguetes Educativos / Científicos</a>
+          <a href="categoria.html?categoria=TEC">🤖 Tecnología y Robótica</a>
         </div>
-        <div class="category-item">
-          <a href="categoria.html?categoria=CRE-LIB">📚 Libros y cuentos</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="category-group">
-      <div class="category-item">
-        <a href="categoria.html?categoria=OTR">🧑‍🚀 Otros</a>
-      </div>
-      <div class="subcategories">
-        <div class="category-item">
-          <a href="categoria.html?categoria=OTR-ACC">🧑‍🚀 Accesorios y merchandising</a>
+        <div class="subcategories">
+          <div class="category-item">
+            <a href="categoria.html?categoria=TEC-INT">🎮 Juegos Interactivos</a>
+          </div>
+          <div class="category-item">
+            <a href="categoria.html?categoria=TEC-ROM">🧩 Juegos de mesa y rompecabezas</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+  
+      <div class="category-group">
+        <div class="category-item">
+          <a href="categoria.html?categoria=CRE">🎨 Creatividad y Educación</a>
+        </div>
+        <div class="subcategories">
+          <div class="category-item">
+            <a href="categoria.html?categoria=CRE-EDU">🧪 Juguetes Educativos / Científicos</a>
+          </div>
+          <div class="category-item">
+            <a href="categoria.html?categoria=CRE-LIB">📚 Libros y cuentos</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="category-group">
+        <div class="category-item">
+          <a href="categoria.html?categoria=OTR">🧑‍🚀 Otros</a>
+        </div>
+        <div class="subcategories">
+          <div class="category-item">
+            <a href="categoria.html?categoria=OTR-ACC">🧑‍🚀 Accesorios y merchandising</a>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
 
   <main>
     <div id="contenedor-productos" class="contenedor-productos">
@@ -153,13 +158,16 @@
   <script src="js/main.js" defer></script>
   <script src="js/carrito.js" defer></script>
   <script>
+    function toggleMenu() {
+      document.getElementById("navRight").classList.toggle("active");
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.search-form').addEventListener('submit', e => e.preventDefault());
     });
   </script>
 </body>
 </html>
-
 
 <!--  boton para seguir comprando en carrito.hmtl
   categorias para seccion de alta.hmtl

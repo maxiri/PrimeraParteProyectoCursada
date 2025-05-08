@@ -72,4 +72,42 @@ html, body {
       color: #eee;
     }
   }
+  html, body {
+    width: 100%;
+    overflow-x: hidden; // 🔒 Previene el scroll lateral
+  }
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+  }
   
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .nav__right {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #fff;
+      padding: 1rem;
+    }
+  
+    .nav__right.active {
+      display: flex;
+    }
+  
+    #menuList {
+      flex-direction: column;
+    }
+  
+    #menuList ul {
+      margin-left: 1rem;
+    }
+  }
+    

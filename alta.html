@@ -1,145 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scss/main.css">
-    <link rel="icon" href="assets/images/Logo/Logo-para-pestaña-de-pagina.png" type="image/png" />
-    <title>Gestión de Productos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juguetería Cósmica</title>
+  <link rel="stylesheet" href="scss/main.css" />
+  <link rel="icon" href="assets/images/Logo/Logo-Unico-Sin-Letras.png" type="image/png" />
 </head>
-<body id="alta">
-  <nav class="alta-nav">
-    <div class="alta-nav__container">
-      <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo Juguetería Cósmica" class="alta-nav__logo" />
-      <h1 class="alta-nav__title">Gestión de Productos</h1>
-    </div>
-    <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
-  </nav>
+<body>
+  <header>
+    <nav>
+      <div class="nav__left">
+        <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo" />
 
-  <section class="alta">
-    <!-- Modal de acceso -->
-    <div class="modal" id="modal-acceso">
-      <div class="modal-content">
-        <h2>🔐 Acceso restringido</h2>
-        <p>Por favor, ingresá el código de autorización para continuar:</p>
-        <input type="password" id="input-codigo" placeholder="Código de acceso">
-        <button id="btn-validar-codigo">Ingresar</button>
-      </div>
-    </div>
+        <div class="search-and-cart">
+          <form class="search-form">
+            <input type="text" placeholder="Buscar juguetes..." />
+            <button type="submit" aria-label="Buscar">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 2a8 8 0 105.293 14.293l5.707 5.707 1.414-1.414-5.707-5.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+              </svg>
+            </button>
+          </form>
 
-    <section id="product-management">
-      <h2>Gestión de Productos</h2>
-
-      <!-- Formulario para agregar producto -->
-      <form id="addProductForm" novalidate>
-        <div class="form-group">
-          <label for="productName">Nombre del Producto</label>
-          <input type="text" id="productName" name="productName" pattern="^[A-Za-z\s]{2,40}$" required />
-        </div>
-
-        <div class="form-group">
-          <label for="productDescription">Descripción</label>
-          <textarea id="productDescription" name="productDescription" minlength="10" maxlength="300" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="productPrice">Precio</label>
-          <input type="number" id="productPrice" name="productPrice" min="0" step="0.01" required />
-        </div>
-
-        <div class="form-group">
-          <label for="productStock">Stock</label>
-          <input type="number" id="productStock" name="productStock" min="0" required />
-        </div>
-
-        <div class="form-group">
-          <label for="productImage">Imagen del Producto</label>
-          <input type="file" id="productImage" name="productImage" accept="image/*" required />
-        </div>
-
-        <div class="form-group">
-          <label for="productCategory">Categoría</label>
-          <select id="productCategory" name="productCategory" required>
-            <option value="">-- Seleccionar categoría --</option>
-            <option value="ESP">🚀 Juguetes Espaciales</option>
-            <option value="TEC">🤖 Tecnología y Robótica</option>
-            <option value="CRE">🎨 Creatividad y Educación</option>
-            <option value="OTR">🧑‍🚀 Otros</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="productSubcategory">Subcategoría</label>
-          <select id="productSubcategory" name="productSubcategory" required>
-            <option value="">-- Seleccionar subcategoría --</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="productAgeFrom">Edad desde</label>
-          <input type="number" id="productAgeFrom" name="productAgeFrom" min="0" max="18" required />
-        </div>
-
-        <div class="form-group">
-          <label for="productAgeTo">Edad hasta</label>
-          <input type="number" id="productAgeTo" name="productAgeTo" min="0" max="18" required />
-        </div>
-
-        <div class="shipping-option">
-          <input type="checkbox" id="productFreeShipping" name="productFreeShipping" />
-          <label for="productFreeShipping">🚚 Envío sin cargo</label>
-        </div>
-
-        <button type="submit">Agregar Producto</button>
-        <p id="previewId" style="font-weight: bold; margin-top: 10px;"></p>
-        <div id="previewModal" class="modal" style="display: none;">
-          <div class="modal-content">
-            <h3>🤭 ¿Confirmás que los datos son correctos?</h3>
-            <div id="previewContent"></div>
-            <div class="modal-buttons">
-              <button id="confirmAdd">✅ Confirmar</button>
-              <button id="cancelPreview">❌ Cancelar</button>
+          <div class="cart-icon">
+            <div id="cart-count-container">
+              <button onclick="window.location.href = 'carrito.html';" aria-label="Ver carrito">
+                <span class="cart-count" id="cart-count">0</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
+                  <path d="M7 4h-2l-3 7v2h2l3.6 7h10.8l3.6-7h2v-2l-3-7h-2l-3 7h-6l-3-7zm3 11h8.6l-2.4 4h-7.6l-2.4-4h3.8z"/>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
-      </form>
-
-      <!-- Formulario para eliminar producto -->
-      <form id="deleteProductForm">
-        <h2>Eliminar producto</h2>
-        <label for="productId">ID del producto:</label>
-        <input type="text" id="productId" name="productId" required />
-        <button type="submit">Eliminar</button>
-      </form>
-
-      <!-- Formulario para actualizar stock -->
-      <form id="updateStockForm">
-        <div class="form-group">
-          <label for="productIdStock">ID del Producto</label>
-          <input type="text" id="productIdStock" name="productIdStock" required />
-        </div>
-      </form>
-
-      <!-- Formulario para buscar producto por ID -->
-      <div>
-        <h2>Buscar Producto por ID</h2>
-        <input type="text" id="searchId" placeholder="Ingresa el ID del producto" />
-        <button id="searchButton">Buscar</button>
-        <div id="searchResult"></div>
       </div>
 
-      <div id="productList"></div>
-    </section>
+      <div class="nav__right">
+        <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+        <ul id="menuList">
+          <li>
+            <a href="#">Información</a>
+            <ul>
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="Nosotrso.html">Nosotros</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Sitio</a>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="alta.html">Alta</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <button class="hamburger" aria-label="Menú" onclick="toggleMenu()">☰</button>
+  <div class="nav__right" id="navRight">
+    <!-- Modo oscuro y menú -->
+  </div>
+  <!-- Sección de categorías -->
+  <section id="toy-categories">
+    <div class="category-group">
+      <div class="category-item">
+        <a href="categoria.html?categoria=ESP">🚀 Juguetes Espaciales</a>
+      </div>
+      <div class="subcategories">
+        <div class="category-item">
+          <a href="categoria.html?categoria=ESP-DEC">🛏️ Deco Infantil Cósmico</a>
+        </div>
+        <div class="category-item">
+          <a href="categoria.html?categoria=ESP-FIG">👾 Figuras y Personajes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-group">
+      <div class="category-item">
+        <a href="categoria.html?categoria=TEC">🤖 Tecnología y Robótica</a>
+      </div>
+      <div class="subcategories">
+        <div class="category-item">
+          <a href="categoria.html?categoria=TEC-INT">🎮 Juegos Interactivos</a>
+        </div>
+        <div class="category-item">
+          <a href="categoria.html?categoria=TEC-ROM">🧩 Juegos de mesa y rompecabezas</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-group">
+      <div class="category-item">
+        <a href="categoria.html?categoria=CRE">🎨 Creatividad y Educación</a>
+      </div>
+      <div class="subcategories">
+        <div class="category-item">
+          <a href="categoria.html?categoria=CRE-EDU">🧪 Juguetes Educativos / Científicos</a>
+        </div>
+        <div class="category-item">
+          <a href="categoria.html?categoria=CRE-LIB">📚 Libros y cuentos</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-group">
+      <div class="category-item">
+        <a href="categoria.html?categoria=OTR">🧑‍🚀 Otros</a>
+      </div>
+      <div class="subcategories">
+        <div class="category-item">
+          <a href="categoria.html?categoria=OTR-ACC">🧑‍🚀 Accesorios y merchandising</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <script src="js/alta.js" defer></script>
+  <main>
+    <div id="contenedor-productos" class="contenedor-productos">
+      <section id="productList" class="product-list-section"></section>
+    </div>
 
-  <footer class="footer">
+    <template id="card-template">
+      <div class="producto-item producto-card" data-id="">
+        <h3 class="nombre"></h3>
+        <img class="imagen" style="max-width: 200px; border-radius: 8px;" />
+        <p class="precio"></p>
+        <p class="descripcion"></p>
+        <p class="stock"></p>
+        <button class="add-to-cart">Agregar al carrito</button>
+      </div>
+    </template>
+  </main>
+
+  <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-links">
         <ul>
           <li><a href="Contacto.html">Contacto</a></li>
           <li><a href="#politicas">Políticas de privacidad</a></li>
-          <li><a href="nosotros.html">Sobre nosotros</a></li>
+          <li><a href="Nosotrso.html">Sobre nosotros</a></li>
           <li><a href="#envios">Envíos</a></li>
         </ul>
       </div>
@@ -151,5 +152,13 @@
       <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
     </div>
   </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/carrito.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector('.search-form').addEventListener('submit', e => e.preventDefault());
+    });
+  </script>
 </body>
 </html>

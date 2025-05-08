@@ -533,3 +533,9 @@ function filtrarYMostrarProductos(query) {
     .forEach(producto => agregarProductoAlDom(producto));
 }
 inicializarProductosBase();
+
+  function toggleMenu() {
+    const nav = document.getElementById("navRight");
+    nav.classList.toggle("active");
+  }
+
