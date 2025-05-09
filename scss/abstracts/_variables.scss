@@ -3,6 +3,11 @@ $font-base: 'Inter', sans-serif;
 $font-size-base: 16px;
 $font-size-small: 14px;
 $font-size-large: 20px;
+$font-base: 'Inter', sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 20px;
+
 
 // === PALETA DE COLORES ===
 $color-primary:     #048b7b;
@@ -14,9 +19,42 @@ $color-muted-2:     #5c8c94;
 $color-dark-1:      #274f51;
 $color-dark-2:      #345c64;
 $color-light:       #ade7ee;
-$color-primary:     #048b7b;
+$primary-color:     #048b7b;
 $color-dark:        #0c2c2c;
 $color-border:      #5c8c94;
+$primary-color: #5c8c94;
+$text-dark: #274f51;
+$text-muted: #666;
+$primary-color: #5c8c94;
+$primary-dark: darken($primary-color, 10%);
+$secondary-color: #f0f4f5;
+$text-dark: #274f51;
+$text-muted: #666;
+$white: #ffffff;
+
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-sm: 576px;
+
+// Border radius
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+
+// Shadows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 6px 12px rgba(0, 0, 0, 0.15);
 
 
 // === ESPACIADOS ===
@@ -28,10 +66,3 @@ $spacing-xl:        32px;
 
 // === BORDES ===
 $border-radius:     8px;
-
-
-
-
-
-
-

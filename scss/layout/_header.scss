@@ -1,8 +1,92 @@
-// define lo sestilos del header
 @use '../abstracts' as *;
-header {
-    background-color: $color-primary;
-    color: rgb(216, 0, 0);
-    padding: $spacing-md;
+
+.site-header {
+  background-color: $white;
+  box-shadow: $shadow-md;
+  padding: $spacing-sm 0;
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-sm;
+
+    .logo {
+      font-size: $font-size-lg;
+      font-weight: bold;
+      color: $primary-color;
+      text-transform: uppercase;
+    }
+
+    .search-bar {
+      flex-grow: 1;
+      margin: 0 $spacing-sm;
+
+      input[type="text"] {
+        width: 100%;
+        padding: $spacing-xs $spacing-sm;
+        border-radius: $radius-sm;
+        border: 1px solid $primary-color;
+        font-size: $font-size-sm;
+      }
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: $font-size-lg;
+      cursor: pointer;
+      color: $primary-color;
+    }
+
+    nav {
+      display: flex;
+      gap: $spacing-sm;
+
+      a {
+        color: $text-dark;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
   }
-  
+
+  // Responsive behavior
+  @include respond(sm) {
+    .header-container {
+      flex-wrap: wrap;
+
+      .nav-toggle {
+        display: block;
+      }
+
+      nav {
+        width: 100%;
+        flex-direction: column;
+        display: none;
+
+        &.active {
+          display: flex;
+          margin-top: $spacing-sm;
+        }
+
+        a {
+          padding: $spacing-xs 0;
+        }
+      }
+
+      .search-bar {
+        width: 100%;
+        margin: $spacing-sm 0;
+      }
+    }
+  }
+}

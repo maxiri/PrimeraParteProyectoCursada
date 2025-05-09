@@ -1,7 +1,7 @@
 // funciones reutilizables
 // Centrado flexible
 // Mixin para centrar un contenedor
-
+@use 'variables' as *;
 @mixin flex-center {
     display: flex;
     justify-content: center;
@@ -9,19 +9,27 @@
   }
   
   // Responsive breakpoint
-  @mixin respond-to($breakpoint) {
-    @if $breakpoint == sm {
-      @media (max-width: 600px) { @content; }
-    } @else if $breakpoint == md {
-      @media (max-width: 900px) { @content; }
-    } @else if $breakpoint == lg {
-      @media (max-width: 1200px) { @content; }
-    }
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
   }
+}
+ // Asegúrate de que la ruta sea relativa al archivo
 
-  @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
   }
-  
+}

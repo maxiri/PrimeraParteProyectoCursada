@@ -1,90 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scss/main.css">
-    <link rel="icon" href="assets/images/Logo/Logo-para-pestaña-de-pagina.png" type="image/png" />
- 
-    <title>Contact</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="scss/main.css">
+  <link rel="icon" href="assets/images/Logo/Logo-para-pestaña-de-pagina.png" type="image/png" />
+  <title>Contact</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav__left">
-              <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo" />
-              <form class="search-form">
-                <input type="text" placeholder="Buscar juguetes..." />
-                <button type="submit" aria-label="Buscar">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 2a8 8 0 105.293 14.293l5.707 5.707 1.414-1.414-5.707-5.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
-                  </svg>
-                </button>
-              </form>
-            </div>
-        
-            <div class="nav__right">
-              <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
-              <ul id="menuList">
-                <li>
-                  <a href="#">Información</a>
-                  <ul>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="Nosotrso.html">Nosotros</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#">Sitio</a>
-                  <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="alta.html">Alta</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </nav>
-    </header>
-      
-    <main class="contact-section">
-        <h1>¡Contáctanos!</h1>
-        <p>¿Tenés alguna duda, sugerencia o querés saludarnos? ¡Escribinos!</p>
-      
-        <form class="contact-form">
-          <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" placeholder="Tu nombre" required>
-          </div>
-      
-          <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" placeholder="tu@email.com" required>
-          </div>
-      
-          <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" placeholder="Escribí tu mensaje..." rows="5" required></textarea>
-          </div>
-      
-          <button type="submit">Enviar mensaje</button>
+  <header>
+    <nav>
+      <div class="nav__left">
+        <img id="logo" src="assets/images/Logo/Logo-Unico-Sin-Letras.png" alt="Logo de la tienda" class="logo" />
+        <form class="search-form">
+          <input type="text" placeholder="Buscar juguetes..." />
+          <button type="submit" aria-label="Buscar">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2a8 8 0 105.293 14.293l5.707 5.707 1.414-1.414-5.707-5.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+            </svg>
+          </button>
         </form>
-    </main>
-    <script src="js/main.js"></script>  
-        <footer  class="site-footer">
-          <div class="footer-content">
-            <div class="footer-links">
-              <ul>
-                <li><a href="Contacto.html">Contacto</a></li>
-                <li><a href="#politicas">Políticas de privacidad</a></li>
-                <li><a href="Nosotrso.html">Sobre nosotros</a></li>
-                <li><a href="#envios">Envíos</a></li>
-            </div>
-            <div class="footer-logo">
-              <img src="assets/images/Logo/Logo-para-pestaña-de-pagina.png" alt="Juguetería Cósmica">
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
-          </div>
-        </footer>
+      </div>
+
+      <div class="nav__right">
+        <button onclick="toggleDarkMode()">🌙 Modo Oscuro</button>
+        <ul id="menuList">
+          <li>
+            <a href="#">Información</a>
+            <ul>
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="Nosotrso.html">Nosotros</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Sitio</a>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="alta.html">Alta</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="contact-section">
+    <h1>¡Contáctanos!</h1>
+    <p>¿Tenés alguna duda, sugerencia o querés saludarnos? ¡Escribinos!</p>
+
+    <form class="contact-form" action="#">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" placeholder="tu@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" placeholder="Escribí tu mensaje..." rows="5" required></textarea>
+      </div>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <ul>
+          <li><a href="Contacto.html">Contacto</a></li>
+          <li><a href="#politicas">Políticas de privacidad</a></li>
+          <li><a href="Nosotrso.html">Sobre nosotros</a></li>
+          <li><a href="#envios">Envíos</a></li>
+        </ul>
+      </div>
+      <div class="footer-logo">
+        <img src="assets/images/Logo/Logo-para-pestaña-de-pagina.png" alt="Juguetería Cósmica">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Juguetería Cósmica. Todos los derechos reservados. Desarrollado por [Core's Company]</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
